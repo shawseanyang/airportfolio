@@ -1,12 +1,9 @@
 import Window from '../components/Window'
 import SkyImage from '../media/sky.jpg'
-import { useState } from 'react'
 import styled from 'styled-components';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const InteriorWall = styled.div`
-  position:fixed;
-  top:0;
-  left:0;
   background-color: #0A213A;
   width:100%;
   height:100vh;
@@ -31,17 +28,33 @@ const Stacker = styled.div`
   position:relative;
 `
 
+const Animation = styled.div`
+  height:100vh;
+`
+
+function progressToShadePercentage(progress: number) {
+  return 60 - progress * 40
+}
+
 const WindowScene = () => {
-  const [shadePercentage, setShadePercentage] = useState(60)
   return (
-    <>
-      <InteriorWall>
-        <Stacker>
-          <Window shadePercentage={shadePercentage} />
-          <SkyImageComponent />
-        </Stacker>
-      </InteriorWall>
-    </>
+    <Controller>
+      <Scene
+        triggerHook="onLeave"
+        duration="100%"
+        pin
+      >
+        {(progress: number) => (
+          <InteriorWall>
+            <Stacker>
+              <Window shadePercentage={progressToShadePercentage(progress)} />
+              <SkyImageComponent />
+            </Stacker>
+          </InteriorWall>
+        )}
+      </Scene>
+      <Animation />
+    </Controller>
   )
 }
 
