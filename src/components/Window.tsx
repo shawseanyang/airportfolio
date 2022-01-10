@@ -5,6 +5,7 @@ const HANDLE_OFFSET = 70
 
 const PositionRelative = styled.div`
   position: relative;
+  z-index: 2;
 `
 
 type ShadeProps = {

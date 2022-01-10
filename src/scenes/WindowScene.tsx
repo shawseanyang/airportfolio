@@ -3,6 +3,7 @@ import SkyImage from '../media/sky.jpg'
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
 import color from '../constants/colors';
+import Title from '../typography/Title';
 
 const InteriorWall = styled.div`
   background-color: ${color.BACKGROUND};
@@ -11,13 +12,14 @@ const InteriorWall = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+  position:relative;
 `
 
-const SkyImageComponent = styled.div`
+const InsideSky = styled.div`
   width: 100%;
   height: 90%;
   background-image: url(${SkyImage});
-  z-index:-1;
+  z-index:1;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -29,7 +31,7 @@ const SkyImageComponent = styled.div`
   background-attachment: fixed;
 `
 
-const SkyImageComponent2 = styled.div`
+const OutsideSky = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${SkyImage});
@@ -39,23 +41,43 @@ const SkyImageComponent2 = styled.div`
   top:0;
   background-size: cover;
   background-attachment: fixed;
+  visibility: hidden;
 `
 
 const Stacker = styled.div`
   position:relative;
 `
 
-const Animation = styled.div`
-  height:100vh;
+type CloudTitleProps = {
+  children: React.ReactNode;
+  opacity: number;
+  offset: number;
+}
+
+const CloudTitle = (props: CloudTitleProps) => {
+  return (
+    <div style={{
+      opacity: props.opacity,
+      position: 'absolute',
+      top: `calc(15% - ${props.offset}px)`,
+      left: '15%',
+    }}>
+      <Title>
+        {props.children}
+      </Title>
+    </div>
+  )
+}
+
+const FadeOut = styled.div`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:${color.BACKGROUND};
+  z-index:2;
 `
-
-function progressToShadePercentage(progress: number) {
-  return Math.max(60 - progress * 80, 20)
-}
-
-function progressToOpacity(progress: number) {
-  return Math.min(1, 4.5 - progress * 5)
-}
 
 type InterpolateSettings = {
   start: {
@@ -82,43 +104,70 @@ const WindowScene = () => {
     <Controller>
       <Scene
         triggerHook="onLeave"
-        duration="300%"
+        duration="600%"
         pin
       >
         {(progress: number) => (
-          <InteriorWall 
-            style={{
-              opacity:
-                interpolate({
-                  start: {x:0.66, y:1},
-                  end: {x:1, y:0},
-                }, progress)
-          }}
-          >
-            <Stacker 
-              style={{
-                width: `${
-                  interpolate({
-                    start: {x:0.33, y:25},
-                    end: {x:0.66, y:100},
-                  }, progress)
-                }%`
+          <div>
+              <InteriorWall 
+                style={{
+                  opacity:
+                    interpolate({
+                      start: {x:0.4, y:1},
+                      end: {x:0.6, y:0},
+                    }, progress)
               }}
-            >
-              <Window 
-                shadePercentage={
+              >
+                <Stacker 
+                  style={{
+                    width: `${
+                      interpolate({
+                        start: {x:0.2, y:25},
+                        end: {x:0.4, y:100},
+                      }, progress)
+                    }%`
+                  }}
+                >
+                  <Window 
+                    shadePercentage={
+                      interpolate({
+                        start: {x:0, y:60},
+                        end: {x:0.2, y:20},
+                      }, progress)
+                    }
+                  />
+                  <InsideSky />
+                </Stacker>
+              </InteriorWall>
+              <CloudTitle
+                opacity={
                   interpolate({
-                    start: {x:0, y:60},
-                    end: {x:0.33, y:20},
+                    start: {x:0.6, y:0},
+                    end: {x:0.8, y:1},
                   }, progress)
                 }
-              />
-              <SkyImageComponent />
-            </Stacker>
-          </InteriorWall>
+                offset={
+                  interpolate({
+                    start: {x:0.6, y:50},
+                    end: {x:0.8, y:0},
+                  }, progress)
+                }
+              >
+                Welcome Aboard.
+              </CloudTitle>
+              <FadeOut style={{
+                opacity:
+                  interpolate({
+                    start: {x:0.9, y:0},
+                    end: {x:1, y:1},
+                  }, progress),
+              }} />
+              <OutsideSky style={{
+                visibility: progress < 1 ? 'visible' : 'hidden',
+              }}/>
+            </div>
         )}
       </Scene>
-      <SkyImageComponent2 />
     </Controller>
   )
 }
