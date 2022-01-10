@@ -1,8 +1,8 @@
+import WindowScene from './scenes/WindowScene'
+
 function App() {
   return (
-    <div>
-      Hello World
-    </div>
+    <WindowScene/>
   );
 }
 
