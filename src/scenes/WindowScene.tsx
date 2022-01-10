@@ -13,15 +13,19 @@ const InteriorWall = styled.div`
 `
 
 const SkyImageComponent = styled.div`
-  width: 287px;
-  height: 404px;
+  width: 100%;
+  height: 90%;
   background-image: url(${SkyImage});
   z-index:-1;
-  position:absolute;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   top:0;
-  left:0;
-  border-radius:200px;
+  border-radius:500px;
   background-size: cover;
+  background-attachment: fixed;
 `
 
 const Stacker = styled.div`
@@ -33,7 +37,11 @@ const Animation = styled.div`
 `
 
 function progressToShadePercentage(progress: number) {
-  return 60 - progress * 40
+  return Math.max(60 - progress * 80, 20)
+}
+
+function progressToOpacity(progress: number) {
+  return Math.min(1, 4.5 - progress * 5)
 }
 
 const WindowScene = () => {
@@ -41,19 +49,18 @@ const WindowScene = () => {
     <Controller>
       <Scene
         triggerHook="onLeave"
-        duration="100%"
+        duration="300%"
         pin
       >
         {(progress: number) => (
           <InteriorWall>
-            <Stacker>
-              <Window shadePercentage={progressToShadePercentage(progress)} />
+            <Stacker style={{width: `${Math.max(20, 200 * progress - 40)}%`}}>
+              <Window shadePercentage={progressToShadePercentage(progress)} opacity={progressToOpacity(progress)}/>
               <SkyImageComponent />
             </Stacker>
           </InteriorWall>
         )}
       </Scene>
-      <Animation />
     </Controller>
   )
 }
