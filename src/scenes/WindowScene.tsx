@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
 import color from '../constants/colors';
 import Title from '../typography/Title';
+import interpolate from '../utils/interpolate';
 
 const InteriorWall = styled.div`
   background-color: ${color.BACKGROUND};
@@ -48,6 +49,16 @@ const Stacker = styled.div`
   position:relative;
 `
 
+const FadeOut = styled.div`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:${color.BACKGROUND};
+  z-index:2;
+`
+
 type CloudTitleProps = {
   children: React.ReactNode;
   opacity: number;
@@ -67,36 +78,6 @@ const CloudTitle = (props: CloudTitleProps) => {
       </Title>
     </div>
   )
-}
-
-const FadeOut = styled.div`
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color:${color.BACKGROUND};
-  z-index:2;
-`
-
-type InterpolateSettings = {
-  start: {
-    x: number,
-    y: number
-  }
-  end: {
-    x: number,
-    y: number
-  }
-}
-
-function interpolate(s: InterpolateSettings, progress: number): number {
-  const slope = (s.end.y - s.start.y) / (s.end.x - s.start.x)
-  const intercept = s.start.y - slope * s.start.x
-  const proposal = slope * progress + intercept
-  const min = Math.min(s.start.y, s.end.y)
-  const max = Math.max(s.start.y, s.end.y)
-  return Math.max(min, Math.min(max, proposal))
 }
 
 const WindowScene = () => {
