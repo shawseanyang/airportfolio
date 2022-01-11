@@ -85,7 +85,7 @@ const WindowScene = () => {
     <Controller>
       <Scene
         triggerHook="onLeave"
-        duration="600%"
+        duration="300%"
         pin
       >
         {(progress: number) => (
@@ -94,8 +94,8 @@ const WindowScene = () => {
                 style={{
                   opacity:
                     interpolate({
-                      start: {x:0.4, y:1},
-                      end: {x:0.6, y:0},
+                      start: {x:0.3, y:1},
+                      end: {x:0.45, y:0},
                     }, progress)
               }}
               >
@@ -103,8 +103,8 @@ const WindowScene = () => {
                   style={{
                     width: `${
                       interpolate({
-                        start: {x:0.2, y:25},
-                        end: {x:0.4, y:100},
+                        start: {x:0.15, y:25},
+                        end: {x:0.3, y:100},
                       }, progress)
                     }%`
                   }}
@@ -113,7 +113,7 @@ const WindowScene = () => {
                     shadePercentage={
                       interpolate({
                         start: {x:0, y:60},
-                        end: {x:0.2, y:20},
+                        end: {x:0.15, y:20},
                       }, progress)
                     }
                   />
@@ -123,14 +123,14 @@ const WindowScene = () => {
               <CloudTitle
                 opacity={
                   interpolate({
-                    start: {x:0.6, y:0},
-                    end: {x:0.8, y:1},
+                    start: {x:0.45, y:0},
+                    end: {x:0.6, y:1},
                   }, progress)
                 }
                 offset={
                   interpolate({
-                    start: {x:0.6, y:50},
-                    end: {x:0.8, y:0},
+                    start: {x:0.45, y:50},
+                    end: {x:0.6, y:0},
                   }, progress)
                 }
               >
@@ -139,7 +139,7 @@ const WindowScene = () => {
               <FadeOut style={{
                 opacity:
                   interpolate({
-                    start: {x:0.9, y:0},
+                    start: {x:0.8, y:0},
                     end: {x:1, y:1},
                   }, progress),
               }} />
