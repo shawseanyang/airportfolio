@@ -1,4 +1,5 @@
 import color from '../constants/colors';
+import { font, fontSize } from '../constants/fonts';
 
 type TitleProps = {
   children: React.ReactNode,
@@ -6,9 +7,9 @@ type TitleProps = {
 
 const Title = (props: TitleProps) =>
   <span style={{
-    fontFamily: '"Montserrat", sans-serif',
+    fontFamily: font.TITLE,
     fontWeight: 'bold',
-    fontSize: '30px',
+    fontSize: fontSize.TITLE,
     color: color.MAIN,
   }}>
     {props.children}
