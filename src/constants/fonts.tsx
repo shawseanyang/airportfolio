@@ -5,5 +5,5 @@ export const font = {
 
 export const fontSize = {
   TITLE: "30px",
-  BODY: "12px",
+  BODY: "15px",
 }

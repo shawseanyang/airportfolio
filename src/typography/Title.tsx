@@ -1,18 +1,14 @@
 import color from '../constants/colors';
 import { font, fontSize } from '../constants/fonts';
 
-type TitleProps = {
-  children: React.ReactNode,
-}
-
-const Title = (props: TitleProps) =>
+const Title: React.FC = ({children}) =>
   <span style={{
     fontFamily: font.TITLE,
     fontWeight: 'bold',
     fontSize: fontSize.TITLE,
     color: color.MAIN,
   }}>
-    {props.children}
+    {children}
   </span>
 
 export default Title

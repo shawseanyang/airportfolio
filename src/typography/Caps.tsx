@@ -1,6 +1,6 @@
 import { font, fontSize } from '../constants/fonts';
 
-const Bold = ({ children }) => (
+const Caps: React.FC = ({ children }) => (
   <span style={{
     fontFamily: font.BODY,
     textTransform: 'uppercase',
@@ -10,4 +10,4 @@ const Bold = ({ children }) => (
   </span>
 );
 
-export default Bold
+export default Caps

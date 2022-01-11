@@ -12,8 +12,8 @@ const Highlight = ({
   }: HighlightProps) => (
   <span style={{
     color: color.HIGHLIGHT,
-    fontFamily: overrideFont ? font.BODY : 'initial',
-    fontSize: overrideFont ? fontSize.BODY : 'initial',
+    fontFamily: overrideFont ? font.BODY : 'inherit',
+    fontSize: overrideFont ? fontSize.BODY : 'inherit',
   }}>
     {children}
   </span>
