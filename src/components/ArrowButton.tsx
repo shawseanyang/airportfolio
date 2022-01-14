@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Stack from 'react-bootstrap/Stack'
 import Bold from '../typography/Bold'
 import { Transition, TransitionStatus } from 'react-transition-group';
+import format from '../constants/format'
 
 type Direction = 'n' | 's' | 'e' | 'w'
 
@@ -13,6 +14,10 @@ export type ArrowButtonProps = {
   direction: Direction;
   children: React.ReactNode;
   active?: boolean;
+  activeBackgroundColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  rounded?: boolean;
 }
 
 function directionToArrowIcon(direction: Direction) {
@@ -34,22 +39,20 @@ function directionToArrowIcon(direction: Direction) {
   return <FontAwesomeIcon icon={name} />
 }
 
-const PIXELS_TO_MOVE_ON_HOVER = 5;
-
 function directionToHoverMove(direction: Direction): [number, number] {
   let [x, y] = [0, 0]
   switch (direction) {
     case 'n':
-      y = -PIXELS_TO_MOVE_ON_HOVER
+      y = -format.PIXELS_TO_MOVE_ON_HOVER
       break;
     case 's':
-      y = PIXELS_TO_MOVE_ON_HOVER
+      y = format.PIXELS_TO_MOVE_ON_HOVER
       break;
     case 'e':
-      x = PIXELS_TO_MOVE_ON_HOVER
+      x = format.PIXELS_TO_MOVE_ON_HOVER
       break;
     case 'w':
-      x = -PIXELS_TO_MOVE_ON_HOVER
+      x = -format.PIXELS_TO_MOVE_ON_HOVER
       break;
   }
   return [x, y]
@@ -59,16 +62,22 @@ const ArrowButton = ({
   direction,
   children,
   active = false,
+  activeBackgroundColor = color.HIGHLIGHT,
+  backgroundColor = color.FOREGROUND,
+  textColor = color.MAIN,
+  rounded = true,
 }: ArrowButtonProps) => {
 
   const StyledButton = styled(Button)`
-    color: ${color.MAIN};
-    transition: 0.3s;
+    color: ${textColor};
+    transition: ${format.TRANSITION_DURATION}s;
     border-top-right-radius: 0;
+    ${!rounded ? 'border-radius: 0;' : ''}
+    background-color: ${active ? activeBackgroundColor : backgroundColor};
     &:hover {
       transform: translate(${directionToHoverMove(direction)[0]}px, ${directionToHoverMove(direction)[1]}px);
-      background-color: ${active ? color.HIGHLIGHT : color.FOREGROUND};
-      color: ${color.MAIN};
+      background-color: ${active ? activeBackgroundColor : backgroundColor};
+      color: ${textColor};
     }
   `
 
@@ -77,10 +86,10 @@ const ArrowButton = ({
   }
 
   const backgroundStyles: TransitionStyle = {
-    entering: { backgroundColor: color.HIGHLIGHT },
-    entered: { backgroundColor: color.HIGHLIGHT },
-    exiting: { backgroundColor: color.FOREGROUND },
-    exited: { backgroundColor: color.FOREGROUND },
+    entering: { backgroundColor: activeBackgroundColor },
+    entered: { backgroundColor: activeBackgroundColor },
+    exiting: { backgroundColor: backgroundColor },
+    exited: { backgroundColor: backgroundColor },
     unmounted: {}
   };
 
@@ -88,11 +97,20 @@ const ArrowButton = ({
     <Transition in={active} timeout={300}>
       {state => (
         <StyledButton size="lg" variant="custom" style={{...backgroundStyles[state]}}>
-          <Stack direction="horizontal" gap={1}>
-            {directionToArrowIcon(direction)}
-            <Bold>
-              {children}
-            </Bold>
+          <Stack direction="horizontal" gap={2}>
+            {
+              direction === 'e' 
+              ? 
+                <>
+                  <Bold overrideColor={false}>{children}</Bold>
+                  {directionToArrowIcon(direction)}
+                </>
+              : 
+                <>
+                  {directionToArrowIcon(direction)}
+                  <Bold>{children}</Bold>
+                </>
+            }
           </Stack>
         </StyledButton>
       )}

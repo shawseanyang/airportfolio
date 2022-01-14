@@ -5,17 +5,17 @@ import ArrowButton from './ArrowButton'
 import React from 'react';
 import format from '../constants/format'
 
-export type Section = {
-  id: string;
-  title: string;
+export type Link = {
+  url: string;
+  displayText: string;
 }
 
-export type MyNavBarProps = {
-  sections: Section[];
-  activeSection: number;
+export type NavBarProps = {
+  links: Link[];
+  activeLink: number;
 }
 
-const MyNavbar = (props: MyNavBarProps) => (
+const MyNavbar = (props: NavBarProps) => (
   <Navbar
     expand="lg"
     variant='dark'
@@ -23,29 +23,29 @@ const MyNavbar = (props: MyNavBarProps) => (
       position: 'sticky',
       top: '-1px',
       backgroundColor: color.BACKGROUND,
+      zIndex: format.MAX_Z_INDEX,
     }}
   >
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav id="navbar">
         { 
-          props.sections.map((section, index) => (
+          props.links.map((link, index) => (
             <Nav.Link 
-              href={`#${section.id}`}
-              className={`${index === 0 ? '' : 'mx-2'}`}
+              href={`#${link.url}`}
             >
               <ArrowButton
                 // Up if section passed, Down if section is below, and Left if current section
                 direction={
-                  index >= props.activeSection 
-                    ? index === props.activeSection 
+                  index >= props.activeLink 
+                    ? index === props.activeLink 
                       ? 'e' 
                       : 's'
                     : 'n'
                 }
-                active={index === props.activeSection}
+                active={index === props.activeLink}
               >
-                {section.title}
+                {link.displayText}
               </ArrowButton>
             </Nav.Link>
           ))

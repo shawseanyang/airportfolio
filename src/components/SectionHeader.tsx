@@ -14,9 +14,9 @@ const Header = styled(Col)`
 const Ghost = Col
 
 const SectionHeader: React.FC = ({children}) => (
-  <Container>
+  <Container fluid={format.MOBILE_BREAKPOINT} className={'px-3'}>
   <Row>
-      <Header sm='true' md='5' className='px-4 p-2'><Title>{children}</Title></Header>
+      <Header lg='5' className='px-4 p-2'><Title>{children}</Title></Header>
       <Ghost />
   </Row>
   </Container>

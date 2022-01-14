@@ -1,13 +1,19 @@
-import { font, fontSize } from '../constants/fonts';
+import Text from './Text';
+import styled from 'styled-components';
+import Bold from './Bold';
 
-const Caps: React.FC = ({ children }) => (
-  <span style={{
-    fontFamily: font.BODY,
-    textTransform: 'uppercase',
-    fontSize: fontSize.BODY,
-  }}>
-    {children}
-  </span>
+const Capped = styled.span`
+  text-transform: uppercase;
+`;
+
+const Caps:React.FC = ({ children }) => (
+  <Capped>
+    <Bold>
+      <Text>
+        {children}
+      </Text>
+    </Bold>
+  </Capped>
 );
 
 export default Caps

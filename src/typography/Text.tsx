@@ -2,13 +2,14 @@ import { font, fontSize } from '../constants/fonts';
 import color from '../constants/colors';
 import { Component } from 'react';
 
-class Highlight extends Component {
+class Text extends Component {
   render() {
     const { children } = this.props;
     return (
       <span style={{
-        color: color.HIGHLIGHT,
-        fontWeight: 'bold',
+        fontFamily: font.BODY,
+        fontSize: fontSize.BODY,
+        color: color.MAIN,
       }}>
         {children}
       </span>
@@ -16,4 +17,4 @@ class Highlight extends Component {
   }
 }
 
-export default Highlight
+export default Text

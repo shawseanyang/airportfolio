@@ -2,16 +2,13 @@ import WindowScene from './scenes/WindowScene'
 import styled from 'styled-components';
 import color from './constants/colors';
 import Stack from 'react-bootstrap/Stack';
-import Title from './typography/Title';
-import Highlight from './typography/Highlight';
 import Container from 'react-bootstrap/Container';
-import Navbar from './components/Navbar';
 import useScrollSpy from 'react-use-scrollspy';
-import { useRef } from 'react';
-import SectionHeader from './components/SectionHeader';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Ticket from './components/Ticket';
+import format from './constants/format';
+import Content from './content/content';
+import { useState, RefObject } from 'react';
 
 const Background = styled.div`
   position: fixed;
@@ -23,65 +20,44 @@ const Background = styled.div`
   z-index:-1;
 `;
 
-const Sections:React.FC = ({children}) => (
-  <Container>
+const Blocks:React.FC = ({children}) => (
+  <Container fluid={format.MOBILE_BREAKPOINT}>
   <Row>
   <Col />
-  <Col xs='12' xl='9'>
-  <Stack gap={5}>
-    {children}
-  </Stack>
+  <Col lg={9}>
+    <Stack gap={5}>
+      {children}
+    </Stack>
   </Col>
   <Col />
-  </Row>
+</Row>
   </Container>
 );
 
-const Section = Stack
-
-const sections = [
-  {id: 'edu', title: 'Edu'},
-  {id: 'work', title: 'Work'},
-  {id: 'projects', title: 'Projects'},
-  {id: 'skills', title: 'Skills'},
-  {id: 'connecting-flights', title: 'Connecting Flights'},
-]
-
 function App() {
 
-  const sectionRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
+  const [refs, setRefs] = useState<RefObject<unknown>[]>([]);
 
-  const activeSection = useScrollSpy({
-    sectionElementRefs: sectionRefs,
+  function updateRefs(r: RefObject<unknown>[]) {
+    setRefs(r);
+  }
+
+  const activeLink = useScrollSpy({
+    sectionElementRefs: refs as RefObject<HTMLElement>[],
     offsetPx: -80,
   });
 
   return (
     <>
+      {console.log(refs)}
       <Background />
       <WindowScene />
-      <Sections>
-        <Section gap={3}>
-          <Title>
-            Hi! I'm Sean, and this is my <Highlight overrideFont={false}>Airportfolio</Highlight>
-          </Title>
-        </Section>
-        <Navbar sections={sections} activeSection={activeSection}/>
+      <Blocks>
         {
-          sections.map((section, index) => (
-            <Section key={section.id} ref={sectionRefs[index]} id={section.id} gap={3}>
-              <SectionHeader>{section.title}</SectionHeader>
-              <Ticket />
-            </Section>
-          ))
+          Content({refs: refs, updateRefs: updateRefs, activeLink: activeLink})
+            .map((block) => block)
         }
-      </Sections>
+      </Blocks>
     </>
   );
 }

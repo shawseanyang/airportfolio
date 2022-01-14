@@ -1,9 +1,10 @@
 export const font = {
   TITLE: "'Montserrat', sans-serif",
-  BODY: "'Open Sans', sans-serif",
+  BODY: "'Proxima Nova', 'Open Sans', sans-serif",
 }
 
 export const fontSize = {
-  TITLE: "30px",
-  BODY: "15px",
+  TITLE: 30,
+  SUBTITLE: 20,
+  BODY: 15,
 }
