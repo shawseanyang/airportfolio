@@ -4,7 +4,7 @@ import { poportions } from './Ticket';
 import format from '../../constants/format';
 
 export type PerforationProps = {
-  position: 'top' | 'bottom';
+  position: 'top' | 'bottom' | 'left' | 'right';
 };
 
 const PERFORATION_SIZE = 25;
@@ -18,11 +18,32 @@ const PerforationCircle = styled.div`
 `
 
 const Perforation = (props: PerforationProps) => (
-  <PerforationCircle style={{
-    top: props.position === 'top' ? `-${PERFORATION_SIZE/2}px` : 'auto',
-    bottom: props.position === 'top' ? 'auto' : `-${PERFORATION_SIZE/2}px`,
-    left: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`,
-  }} />
+  <>
+    {
+      {
+        'top': 
+          <PerforationCircle style={{
+            top: `-${PERFORATION_SIZE/2}px`,
+            left: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+          }} />,
+        'bottom': 
+          <PerforationCircle style={{
+            bottom: `-${PERFORATION_SIZE/2}px`,
+            left: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+          }} />,
+        'left': 
+          <PerforationCircle style={{
+            left: `-${PERFORATION_SIZE/2}px`,
+            top: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+          }} />,
+        'right': 
+          <PerforationCircle style={{
+            right: `-${PERFORATION_SIZE/2}px`,
+            top: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+          }} />,
+      }[props.position]
+    }
+  </>
 );
 
 export default Perforation

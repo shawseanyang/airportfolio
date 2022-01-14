@@ -24,6 +24,7 @@ const MyNavbar = (props: NavBarProps) => (
       top: '-1px',
       backgroundColor: color.BACKGROUND,
       zIndex: format.MAX_Z_INDEX,
+      width: '100%',
     }}
   >
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

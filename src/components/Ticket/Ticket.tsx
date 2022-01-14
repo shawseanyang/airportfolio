@@ -4,15 +4,11 @@ import format from '../../constants/format';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
-import Text from '../../typography/Text';
-import Stack from 'react-bootstrap/Stack';
-import Bold from '../../typography/Bold';
-import AirplaneRange, { AirplaneRangeProps } from '../AirplaneRange';
-import Subtitle from '../../typography/Subtitle';
-import BarcodeButton, { BarcodeButtonProps } from '../BarcodeButton';
 import Body, { BodyProps } from './Body';
 import Perforation from './Perforation';
 import Stub, { StubProps } from './Stub';
+import FollowMouse from '../FollowMouse';
+import MediaQuery from 'react-responsive'
 
 export const poportions = ((proposal = 
   {
@@ -39,24 +35,38 @@ const TicketContainer = styled(Container)`
   border-radius: ${format.BORDER_RADIUS}px;
   position: relative;
   transition: ${format.TRANSITION_DURATION}s;
-  &:hover {
-    transform: scale(1.01);
-  }
 `
 
-const Ticket = (props: TicketProps) => (
-  <TicketContainer
-    fluid={format.MOBILE_BREAKPOINT}
-    className={'p-5'}
-  >
-    <Row>
-      <Stub {...props} />
-      <Col xs={poportions.space} />
-      <Body {...props} />
-    </Row>
-    <Perforation position={'top'} />
-    <Perforation position={'bottom'} />
-  </TicketContainer>
-)
+const Ticket = (props: TicketProps) => {
+  return (
+    <FollowMouse>
+      <TicketContainer
+        fluid={format.MOBILE_BREAKPOINT}
+        className={'p-5'}
+      >
+        <Row>
+          <Stub {...props} />
+          <Col
+          {...{[format.MOBILE_BREAKPOINT as string]: poportions.space}}
+          style={{
+            minHeight: '50px'
+          }}
+          />
+          <Body {...props} />
+        </Row>
+        <MediaQuery minWidth={format.MOBILE_BREAKPOINT_PIXELS}>
+          {/* Desktop */}
+          <Perforation position={'top'} />
+          <Perforation position={'bottom'} />
+        </MediaQuery>
+        <MediaQuery maxWidth={format.MOBILE_BREAKPOINT_PIXELS}>
+          {/* Mobile */}
+          <Perforation position={'left'} />
+          <Perforation position={'right'} />
+        </MediaQuery>
+      </TicketContainer>
+    </FollowMouse>
+  )
+}
 
 export default Ticket

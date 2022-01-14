@@ -15,21 +15,38 @@ const Content = (props: ContentProps) => {
   [
     {
       id: 'edu',
-      title: 'Edu',
+      title: 'Take Off',
+      subtitle: 'Education',
       tickets: [
-        
+        {
+          title: 'Harvard College',
+          subtitle: 'Computer Science BA',
+          text:
+            `
+            *Relevant Coursework*
+            *CS:* 
+            Systems Programming, Theoretical Computer Science, Data Structures and Algorithms
+            *Math:* 
+            Linear Algebra, Probability, Discrete Math
+            `,
+          range: {
+            start: new Date('2020-08-01'),
+            end: new Date('2024-05-01'),
+          },
+        },
       ]
     },
     {
       id: 'work',
-      title: 'Work',
+      title: 'Cruise',
+      subtitle: 'Work experience',
       tickets: [
         {
           title: 'Amazon',
           subtitle: 'Software Engineering Intern',
           text:
             `
-            Launched *large-scale web application* & accompanying Java *API* presenting accountants with the *processing status of 50 million+ journals* destined for the *general ledger* in the FinTech department, *streamlining month-close activities*
+            Launched a *large-scale web application* & accompanying Java *API* presenting accountants with the *processing status of 50 million+ journals* destined for the *general ledger* in the FinTech department, *streamlining month-close activities*
             Designed an efficient, *source-controlled*, *serverless*, and *scalable* architecture
             Delivered *code-reviewed*, *version-controlled* results under *agile* development
             *Optimized* complexdatabase *queries* to millisecondsand *eliminated cold starts* associated with serverless computing
@@ -40,7 +57,7 @@ const Content = (props: ContentProps) => {
           },
           link: {
             url: 'https://www.amazon.com/',
-            displayText: 'Visit',
+            displayText: 'More',
           }
         },
         {
@@ -61,7 +78,8 @@ const Content = (props: ContentProps) => {
     },
     {
       id: 'projects',
-      title: 'Projects',
+      title: 'In-Flight Entertainment',
+      subtitle: 'Projects',
       tickets: [
         {
           title: 'Airventure Oshkosh',
@@ -79,14 +97,29 @@ const Content = (props: ContentProps) => {
     },
     {
       id: 'skills',
-      title: 'Skills',
+      title: 'Meal Service',
+      subtitle: 'Skills',
       tickets: [
-        
+        {
+          title: 'Skills',
+          text:
+            `
+            *Web:* HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Python, Bash, Git, Docker, AWS
+            *Software:* Microsoft Office, Adobe Creative Cloud, Adobe Illustrator, Adobe Photoshop
+            *Hardware:* Arduino, Raspberry Pi, Raspberry Pi Zero, Raspberry Pi 3, Raspberry Pi 4, Raspberry Pi Zero W, Raspberry Pi Zero W
+            *Cloud:* Google Cloud Platform, Amazon Web Services
+            `,
+            range: {
+              start: 'WEB',
+              end: 'CLOUD'
+            }
+        }
       ]
     },
     {
-      id: 'connecting-flights',
+      id: 'contact',
       title: 'Connecting Flights',
+      subtitle: 'Connect with me',
       tickets: [
         
       ]

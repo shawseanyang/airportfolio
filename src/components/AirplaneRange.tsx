@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Text from '../typography/Text';
+import Bold from '../typography/Bold';
 import Caps from '../typography/Caps';
 import Justified from '../typography/Justified';
 import Symbol from '../typography/Symbol';
@@ -37,17 +38,23 @@ const AirplaneRange = (props: AirplaneRangeProps) => (
       }}>
         {
           typeof props.start === 'string'
-          ? props.start
+          ? <Bold>{props.start}</Bold>
           : <DateFormatter date={props.start} />
         }
       </Col>
-      <Col style={{textAlign: 'center'}}><Symbol>&#9992;</Symbol></Col>
+      <Col style={{
+        textAlign: 'center',
+        minWidth: 'fit-content',
+        flexShrink: 0,
+      }}>
+        <Symbol>&#9992;</Symbol>
+      </Col>
       <Col style={{
         maxWidth: 'fit-content'
       }}>
       {
           typeof props.end === 'string'
-          ? props.end
+          ? <Bold>{props.end}</Bold>
           : <DateFormatter date={props.end} />
         }
       </Col>
