@@ -6,8 +6,12 @@ import color from '../constants/colors';
 import Title from '../typography/Title';
 import interpolate from '../utils/interpolate';
 import format from '../constants/format';
+import { Timeline, Tween } from 'react-gsap';
+import { Stack } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-const InteriorWall = styled.div`
+const InteriorWall = styled(Stack)`
   background-color: ${color.BACKGROUND};
   width:calc(100vw + 1px);
   height:100vh;
@@ -64,6 +68,30 @@ const FadeOut = styled.div`
   background-color:${color.BACKGROUND};
   z-index:2;
 `
+
+const RunwayLight = styled.div`
+  width: 5px;
+  height: 5px;
+  background-color: ${color.MAIN};
+  border-radius: 50%;
+`
+
+const ScrollDown = () => (
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '30px',
+  }}>
+    <Stack gap={3} style={{maxWidth: 'fit-content'}}>
+      <Tween  to={{ transform: 'scale(1.2)', background: color.HIGHLIGHT, color: color.HIGHLIGHT }} stagger={0.2} repeat={-1} ease="elastic.out(0.2, 0.1)">
+        <RunwayLight />
+        <RunwayLight />
+        <RunwayLight />
+      </Tween>
+    </Stack>
+  </div>
+);
 
 type CloudTitleProps = {
   children: React.ReactNode;
@@ -124,6 +152,7 @@ const WindowScene = () => {
                   />
                   <InsideSky />
                 </Stacker>
+                <ScrollDown />
               </InteriorWall>
               <CloudTitle
                 opacity={
