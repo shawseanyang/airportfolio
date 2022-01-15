@@ -1,8 +1,8 @@
-import { faArrowUp, faArrowLeft, faArrowRight, faArrowDown, IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp, faArrowLeft, faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import color from '../constants/colors'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import Stack from 'react-bootstrap/Stack'
 import Bold from '../typography/Bold'
 import { Transition, TransitionStatus } from 'react-transition-group';

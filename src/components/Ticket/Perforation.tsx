@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import color from '../../constants/colors';
-import { poportions } from './Ticket';
-import format from '../../constants/format';
+import format, { poportions } from '../../constants/format';
 
 export type PerforationProps = {
   position: 'top' | 'bottom' | 'left' | 'right';

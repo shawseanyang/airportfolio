@@ -12,6 +12,7 @@ type Format = {
   TRANSITION_DURATION: number;
   MAX_Z_INDEX: number;
   BOOTSTRAP_NUM_COLUMNS: number;
+  MAX_TILT: number;
 }
 
 const format: Format = {
@@ -30,6 +31,19 @@ const format: Format = {
   TRANSITION_DURATION: 0.3,
   MAX_Z_INDEX: 1000,
   BOOTSTRAP_NUM_COLUMNS: 12,
+  MAX_TILT: 2,
 }
 
 export default format
+
+export const poportions = ((proposal = 
+  {
+    stub: 3,
+    space: 1,
+    body: 8
+  }) => {
+  if(Object.values(proposal).reduce((sum, current) => sum + current, 0) !== format.BOOTSTRAP_NUM_COLUMNS) {
+    throw new Error('Ticket proportions must sum to the default number of columns in the Bootstrap grid system');
+  }
+  return proposal;
+})();

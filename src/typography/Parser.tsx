@@ -3,7 +3,6 @@ import Text from './Text';
 import JsxParser from 'react-jsx-parser'
 
 // Parses plaintext into JSX
-// *text* produces Highlight
 // new line produces new line
 
 export type ParserProps = {

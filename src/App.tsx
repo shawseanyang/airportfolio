@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import format from './constants/format';
 import Content from './content/content';
 import { useState, RefObject } from 'react';
+import Footer from './components/Footer';
 
 const Background = styled.div`
   position: fixed;
@@ -57,6 +58,7 @@ function App() {
           Content({refs: refs, updateRefs: updateRefs, activeLink: activeLink})
             .map((block) => block)
         }
+        <Footer />
       </Blocks>
     </>
   );

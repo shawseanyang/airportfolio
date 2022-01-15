@@ -3,6 +3,21 @@ import BigTextBlock, { BigTextBlockProps } from '../components/BigTextBlock';
 import TicketsBlock, { TicketsBlockProps } from '../components/TicketsBlock';
 import Navbar, { NavBarProps } from '../components/Navbar';
 import { SectionProps } from '../components/Section';
+import OshKoshMe from '../media/oshkosh/me.jpg';
+import OshKoshClass from '../media/oshkosh/class.jpg';
+import OshKoshPlane from '../media/oshkosh/plane.jpg';
+import RevolveDemoEastCost from '../media/awshackathon/Revolve Demo East Coast.gif';
+import ThreeToTwoDataPanelOpen from '../media/awshackathon/3to2_data_panel_open.png';
+import LandingPage from '../media/awshackathon/Landing Page.png';
+import VariableChangeDemo from '../media/awshackathon/Variable Change Demo.gif';
+import UncdfCountry from '../media/uncdf/country.png';
+import UncdfMap from '../media/uncdf/map.png';
+import UncdfMetric from '../media/uncdf/metric.png';
+import TitleImage from '../components/Ticket/TitleImage';
+import AmazonLogo from '../media/titles/amazon.png';
+import NasaLogo from '../media/titles/nasa.png';
+import HarvardLogo from '../media/titles/harvard.png';
+import T4SGLogo from '../media/titles/t4sg.png';
 
 export type ContentProps = {
   refs: React.RefObject<unknown>[];
@@ -19,7 +34,7 @@ const Content = (props: ContentProps) => {
       subtitle: 'Education',
       tickets: [
         {
-          title: 'Harvard College',
+          title: <TitleImage src={HarvardLogo} />,
           subtitle: 'Computer Science BA',
           text:
             `
@@ -30,8 +45,8 @@ const Content = (props: ContentProps) => {
             Linear Algebra, Probability, Discrete Math
             `,
           range: {
-            start: new Date('2020-08-01'),
-            end: new Date('2024-05-01'),
+            start: new Date('2020/08/01'),
+            end: new Date('2020/05/01'),
           },
         },
       ]
@@ -42,7 +57,7 @@ const Content = (props: ContentProps) => {
       subtitle: 'Work experience',
       tickets: [
         {
-          title: 'Amazon',
+          title: <TitleImage src={AmazonLogo} />,
           subtitle: 'Software Engineering Intern',
           text:
             `
@@ -52,16 +67,16 @@ const Content = (props: ContentProps) => {
             *Optimized* complexdatabase *queries* to millisecondsand *eliminated cold starts* associated with serverless computing
             `,
           range: {
-            start: new Date('2020-04-01'),
-            end: new Date('2020-06-01'),
+            start: new Date('2021/05'),
+            end: new Date('2021/08'),
           },
           link: {
-            url: 'https://www.amazon.com/',
-            displayText: 'More',
+            url: 'http://www.amazon.com',
+            displayText: 'Amazon',
           }
         },
         {
-          title: 'NASA',
+          title: <TitleImage src={NasaLogo} />,
           subtitle: 'SEES Research Intern',
           text:
             `
@@ -70,8 +85,12 @@ const Content = (props: ContentProps) => {
             Advised local landowners on *data-driven steps to recovery*
             `,
           range: {
-            start: new Date('2020-04-01'),
-            end: new Date('2020-06-01'),
+            start: new Date('2019/05'),
+            end: new Date('2019/07'),
+          },
+          link: {
+            url: 'http://www.tsgc.utexas.edu/sees-internship/',
+            displayText: 'SEES',
           }
         },
       ],
@@ -82,18 +101,84 @@ const Content = (props: ContentProps) => {
       subtitle: 'Projects',
       tickets: [
         {
-          title: 'Airventure Oshkosh',
+          title: <TitleImage src={T4SGLogo} />,
+          subtitle: 'Senior Software Engineer',
+          text:
+            `
+              *Client: United Nations Capital Development Fund (UNCDF)*
+              Lead development of a "*Financial Health Dashboard*" *aggregating statistics* from across UN data channels into one *human-friendly*, *centralized dashboard*
+              Transformed project proposal into an *actionable* and *scalable architecture*
+              Established *coding norms* to ensure *clean*, *maintainable*, & *reusable* code
+              *Central point of accountability* for technical sphere of project as the lead engineer
+            `,
+          range: {
+            start: new Date('2021/08'),
+            end: new Date('2021/12'),
+          },
+          link: {
+            url: 'https://socialgood.hcs.harvard.edu/',
+            displayText: 'T4SG',
+          }
+        },
+        {
+          carouselImageSources: [
+            UncdfCountry,
+            UncdfMap,
+            UncdfMetric,
+          ]
+        },
+        {
+          title: 'AWS Hackathon 1st Place',
+          subtitle: 'Access & Equity: COVID-19 Health Vulnerability Mapper',
+          text:
+            `
+              *1st out of 1367* in the *AWS Data Exchange Hackathon*
+              Developed mapper that leverages *real-time COVID data* and the latest *social vulnerability* metrics from *CDC* to highlight relation between *disparity & disease*
+              Employed *Mapbox*, *Node.js*, *D3.js*, AWS *Elastic Beanstalk*, *Lambda*, *S3*, *CloudWatch*, and *Data Exchange* to process 400,000 lines of new data each day
+            `,
+          range: {
+            start: new Date('2020/07'),
+            end: new Date('2020/09'),
+          },
+          link: {
+            url: 'http://covid.shawsean.com',
+            displayText: 'Demo',
+          }
+        },
+        {
+          carouselImageSources: [
+            ThreeToTwoDataPanelOpen,
+            LandingPage,
+            RevolveDemoEastCost,
+            VariableChangeDemo
+          ]
+        },
+        {
+          title: 'Bear Force One',
           subtitle: 'Student Pilot, RV-12 Builder',
           text:
             `
-            *Built and flew* an *FAA-certified*, two-seater airplane with a team of students *1,000 miles* across the U.S. to the largest general aviation airshow in the country
+            *Built and flew* an *FAA-certified*, two-seater airplane (Van's RV-12) with a team of students *1,000 miles* across the U.S. to the largest general aviation airshow in the country (Airventure Oshkosh)
+            Built avionics, control system, wing-box, tail, and right-wing.
             `,
           range: {
             start: new Date('2020-04-01'),
             end: new Date('2020-06-01'),
+          },
+          link: {
+            url: 'https://www.eaa.org/airventure',
+            displayText: 'Oshkosh',
           }
         },
-      ]
+        {
+          carouselImageSources: [
+            OshKoshMe,
+            OshKoshClass,
+            OshKoshPlane
+          ]
+        },
+        
+      ],
     },
     {
       id: 'skills',
@@ -104,15 +189,13 @@ const Content = (props: ContentProps) => {
           title: 'Skills',
           text:
             `
-            *Web:* HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, SQL, Python, Bash, Git, Docker, AWS
-            *Software:* Microsoft Office, Adobe Creative Cloud, Adobe Illustrator, Adobe Photoshop
-            *Hardware:* Arduino, Raspberry Pi, Raspberry Pi Zero, Raspberry Pi 3, Raspberry Pi 4, Raspberry Pi Zero W, Raspberry Pi Zero W
-            *Cloud:* Google Cloud Platform, Amazon Web Services
+            *Soft Skills:* Agile methods, Technical mentorship, Product management, UX, Wireframing,
+            *Languages:* Javascript, Typescript, Java, Python, HTML, CSS, SQL, C++, Bash, GraphQL
+            *Technical:* Source control, Code review, Multithreaded programming, Unit testing, CI/CD, Docker  
+            *Frameworks:* React, Node, Express
+            *AWS:* EC2, S3, Amplify, IAM, AppSync, Cognito, RDS, API Gateway, Elastic Beanstalk, CloudWatch
+            *Google Cloud:* Firebase
             `,
-            range: {
-              start: 'WEB',
-              end: 'CLOUD'
-            }
         }
       ]
     },
@@ -121,7 +204,10 @@ const Content = (props: ContentProps) => {
       title: 'Connecting Flights',
       subtitle: 'Connect with me',
       tickets: [
-        
+        {
+          email: 'shaw.sean.yang@gmail.com',
+          placeholder: 'Your top secret message in the making...'
+        }
       ]
     }
   ];
@@ -131,7 +217,7 @@ const Content = (props: ContentProps) => {
   return [
     (
       <BigTextBlock
-      text="Hi! I'm Sean, and this is my *Airportfolio*"
+      text="Hi! I'm Sean Yang, and this is my *Airportfolio*"
       />
     ),
     (
