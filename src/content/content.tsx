@@ -20,13 +20,11 @@ import HarvardLogo from '../media/titles/harvard.png';
 import T4SGLogo from '../media/titles/t4sg.png';
 
 export type ContentProps = {
-  refs: React.RefObject<unknown>[];
-  updateRefs: (refs: React.RefObject<unknown>[]) => void;
+  refs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
   activeLink: number;
 }
 
-const Content = (props: ContentProps) => {
-  const ticketSections: SectionProps[] = 
+const ticketSections: SectionProps[] = 
   [
     {
       id: 'edu',
@@ -214,6 +212,10 @@ const Content = (props: ContentProps) => {
     }
   ];
 
+export const NUMBER_OF_SECTIONS = ticketSections.length;
+
+const Content = (props: ContentProps) => {
+
   const navLinks = ticketSections.map(({ id, title }) => { return { url: id, displayText: title }});
 
   return [
@@ -232,7 +234,6 @@ const Content = (props: ContentProps) => {
       <TicketsBlock
         sections={ticketSections}
         refs={props.refs}
-        updateRefs={props.updateRefs}
       />
     )
   ]

@@ -7,8 +7,8 @@ import useScrollSpy from 'react-use-scrollspy';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import format from './constants/format';
-import Content from './content/content';
-import { useState, RefObject, useRef } from 'react';
+import Content, { NUMBER_OF_SECTIONS } from './content/content';
+import { useState, RefObject, useRef, createRef } from 'react';
 import Footer from './components/Footer';
 import { Controller } from 'react-scrollmagic';
 
@@ -28,18 +28,10 @@ const Blocks:React.FC = ({children}) => (
 
 function App() {
 
-  const [refs, setRefs] = useState<RefObject<unknown>[]>([]);
-  const [refsPopulated, setRefsPopulated] = useState(false);
-
-  function updateRefs(r: RefObject<unknown>[]) {
-    if (!refsPopulated) {
-      setRefs(r);
-      setRefsPopulated(true);
-    }
-  }
+  const refs = useRef([...Array(NUMBER_OF_SECTIONS)].map(() => createRef<HTMLDivElement>()));
 
   const activeLink = useScrollSpy({
-    sectionElementRefs: refs as RefObject<HTMLElement>[],
+    sectionElementRefs: [...refs.current],
     offsetPx: -80,
   });
 
@@ -47,20 +39,20 @@ function App() {
   document.body.style.backgroundColor = color.BACKGROUND;
 
   return (
-    <>
+    <div>
       <Controller>
         {/* ScrollMagic Controller must be the root element of the page, 
           which instructs it to attach to the page's scroll position */}
           <WindowScene />
           <Blocks>
             {
-              Content({refs: refs, updateRefs: updateRefs, activeLink: activeLink})
+              Content({refs: refs, activeLink: activeLink})
                 .map((block) => block)
             }
             <Footer />
           </Blocks>
       </Controller>
-    </>
+    </div>
   );
 }
 

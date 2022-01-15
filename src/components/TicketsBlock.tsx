@@ -3,8 +3,7 @@ import Section, { SectionProps } from "./Section"
 
 export type TicketsBlockProps = {
   sections: SectionProps[];
-  refs: React.RefObject<unknown>[];
-  updateRefs: (refs: React.RefObject<unknown>[]) => void;
+  refs: React.MutableRefObject<React.RefObject<HTMLDivElement>[]>;
 }
 
 const TicketsBlock: React.FC<TicketsBlockProps> = (props) => 
@@ -13,16 +12,8 @@ const TicketsBlock: React.FC<TicketsBlockProps> = (props) =>
   const rendered = (
     <>
       {props.sections.map((section, index) => {
-        if (props.refs.length === 0) {
-          const ref = createRef()
-          tempRefs.push(ref)
-          props.updateRefs(tempRefs);
-          return (
-            <Section {...section} key={section.id} ref={ref}/>
-          )
-        }
         return (
-          <Section {...section} key={section.id} ref={props.refs[index]}/>
+          <Section {...section} key={section.id} ref={props.refs.current[index]}/>
         )
       })}
     </>
