@@ -19,7 +19,10 @@ const FollowMouse: React.FC = ({children}) => {
         transition: `${format.TRANSITION_DURATION}s`,
         transform:
           `${
+              // no need to translate if mouse is not in viewport
               mouse.x && mouse.y && mouse.elementWidth && mouse.elementHeight
+              // do not animate if device is touch-based
+              && !mouse.isTouch
                 ? `translate(
                     ${(mouse.x - mouse.elementWidth / 2) * DAMPENING_FACTOR}px,
                     ${(mouse.y - mouse.elementHeight / 2) * DAMPENING_FACTOR}px

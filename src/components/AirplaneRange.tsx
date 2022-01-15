@@ -6,6 +6,8 @@ import Bold from '../typography/Bold';
 import Caps from '../typography/Caps';
 import Justified from '../typography/Justified';
 import Symbol from '../typography/Symbol';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlane } from '@fortawesome/free-solid-svg-icons'
 
 export type AirplaneRangeProps = {
   start: Date | string;
@@ -46,8 +48,11 @@ const AirplaneRange = (props: AirplaneRangeProps) => (
         textAlign: 'center',
         minWidth: 'fit-content',
         flexShrink: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
-        <Symbol>&#9992;</Symbol>
+        <Symbol><FontAwesomeIcon icon={faPlane} /></Symbol>
       </Col>
       <Col style={{
         maxWidth: 'fit-content'

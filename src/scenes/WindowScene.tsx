@@ -5,10 +5,11 @@ import { Controller, Scene } from 'react-scrollmagic';
 import color from '../constants/colors';
 import Title from '../typography/Title';
 import interpolate from '../utils/interpolate';
+import format from '../constants/format';
 
 const InteriorWall = styled.div`
   background-color: ${color.BACKGROUND};
-  width:100%;
+  width:calc(100vw + 1px);
   height:100vh;
   display:flex;
   justify-content:center;
@@ -17,7 +18,7 @@ const InteriorWall = styled.div`
 `
 
 const InsideSky = styled.div`
-  width: 100%;
+  width: 90%;
   height: 90%;
   background-image: url(${SkyImage});
   z-index:1;
@@ -30,19 +31,24 @@ const InsideSky = styled.div`
   border-radius:500px;
   background-size: cover;
   background-attachment: fixed;
+  
+  @media (max-width: ${format.MOBILE_BREAKPOINT_PIXELS}px) {
+    background-image: none;
+    background: ${color.SKY_IMAGE_COLOR};  
+  }
 `
 
 const OutsideSky = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: url(${SkyImage});
   z-index:-1;
   position: fixed;
   left: 0;
   top:0;
   background-size: cover;
-  background-attachment: fixed;
   visibility: hidden;
+  background-attachment: initial;
 `
 
 const Stacker = styled.div`
@@ -53,8 +59,8 @@ const FadeOut = styled.div`
   position:absolute;
   top:0;
   left:0;
-  width:100%;
-  height:100%;
+  width: calc(100vw + 1px);
+  height:100vh;
   background-color:${color.BACKGROUND};
   z-index:2;
 `
@@ -82,10 +88,9 @@ const CloudTitle = (props: CloudTitleProps) => {
 
 const WindowScene = () => {
   return (
-    <Controller>
       <Scene
         triggerHook="onLeave"
-        duration="300%"
+        duration="3200vh"
         pin
       >
         {(progress: number) => (
@@ -149,7 +154,6 @@ const WindowScene = () => {
             </div>
         )}
       </Scene>
-    </Controller>
   )
 }
 

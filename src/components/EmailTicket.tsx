@@ -15,7 +15,7 @@ export function isEmailTicketProps(props: any): props is EmailTicketProps {
 
 const EmailTicket = (props: EmailTicketProps) => {
 
-  const [input, setInput] = useState(props.placeholder);
+  const [input, setInput] = useState('');
   
   return (
     <Ticket
@@ -36,6 +36,7 @@ const EmailTicket = (props: EmailTicketProps) => {
         placeholder={props.placeholder}
         style={{
           height: '100%',
+          minHeight: 200,
           fontFamily: font.BODY,
           fontSize: fontSize.BODY,
           backgroundColor: color.BACKGROUND,

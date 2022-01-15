@@ -8,18 +8,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import format from './constants/format';
 import Content from './content/content';
-import { useState, RefObject } from 'react';
+import { useState, RefObject, useRef } from 'react';
 import Footer from './components/Footer';
-
-const Background = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${color.BACKGROUND};
-  z-index:-1;
-`;
+import { Controller } from 'react-scrollmagic';
 
 const Blocks:React.FC = ({children}) => (
   <Container fluid={format.MOBILE_BREAKPOINT}>
@@ -38,9 +29,13 @@ const Blocks:React.FC = ({children}) => (
 function App() {
 
   const [refs, setRefs] = useState<RefObject<unknown>[]>([]);
+  const [refsPopulated, setRefsPopulated] = useState(false);
 
   function updateRefs(r: RefObject<unknown>[]) {
-    setRefs(r);
+    if (!refsPopulated) {
+      setRefs(r);
+      setRefsPopulated(true);
+    }
   }
 
   const activeLink = useScrollSpy({
@@ -48,18 +43,23 @@ function App() {
     offsetPx: -80,
   });
 
+  // Set background
+  document.body.style.backgroundColor = color.BACKGROUND;
+
   return (
     <>
-      {console.log(refs)}
-      <Background />
-      <WindowScene />
-      <Blocks>
-        {
-          Content({refs: refs, updateRefs: updateRefs, activeLink: activeLink})
-            .map((block) => block)
-        }
-        <Footer />
-      </Blocks>
+      <Controller>
+        {/* ScrollMagic Controller must be the root element of the page, 
+          which instructs it to attach to the page's scroll position */}
+          <WindowScene />
+          <Blocks>
+            {
+              Content({refs: refs, updateRefs: updateRefs, activeLink: activeLink})
+                .map((block) => block)
+            }
+            <Footer />
+          </Blocks>
+      </Controller>
     </>
   );
 }

@@ -46,7 +46,7 @@ const Content = (props: ContentProps) => {
             `,
           range: {
             start: new Date('2020/08/01'),
-            end: new Date('2020/05/01'),
+            end: new Date('2024/05/01'),
           },
         },
       ]
@@ -63,12 +63,13 @@ const Content = (props: ContentProps) => {
             `
             Launched a *large-scale web application* & accompanying Java *API* presenting accountants with the *processing status of 50 million+ journals* destined for the *general ledger* in the FinTech department, *streamlining month-close activities*
             Designed an efficient, *source-controlled*, *serverless*, and *scalable* architecture
-            Delivered *code-reviewed*, *version-controlled* results under *agile* development
-            *Optimized* complexdatabase *queries* to millisecondsand *eliminated cold starts* associated with serverless computing
+            Delivered *code-reviewed*, *version-controlled* results using *agile* development practices
+            *Optimized* complex database *queries* to the milliseconds
+            *Eliminated cold start times* associated with serverless computing
             `,
           range: {
-            start: new Date('2021/05'),
-            end: new Date('2021/08'),
+            start: new Date('2021/05/01'),
+            end: new Date('2021/08/01'),
           },
           link: {
             url: 'http://www.amazon.com',
@@ -85,8 +86,8 @@ const Content = (props: ContentProps) => {
             Advised local landowners on *data-driven steps to recovery*
             `,
           range: {
-            start: new Date('2019/05'),
-            end: new Date('2019/07'),
+            start: new Date('2019/05/01'),
+            end: new Date('2019/07/01'),
           },
           link: {
             url: 'http://www.tsgc.utexas.edu/sees-internship/',
@@ -112,8 +113,8 @@ const Content = (props: ContentProps) => {
               *Central point of accountability* for technical sphere of project as the lead engineer
             `,
           range: {
-            start: new Date('2021/08'),
-            end: new Date('2021/12'),
+            start: new Date('2021/08/01'),
+            end: new Date('2021/12/01'),
           },
           link: {
             url: 'https://socialgood.hcs.harvard.edu/',
@@ -137,8 +138,8 @@ const Content = (props: ContentProps) => {
               Employed *Mapbox*, *Node.js*, *D3.js*, AWS *Elastic Beanstalk*, *Lambda*, *S3*, *CloudWatch*, and *Data Exchange* to process 400,000 lines of new data each day
             `,
           range: {
-            start: new Date('2020/07'),
-            end: new Date('2020/09'),
+            start: new Date('2020/07/01'),
+            end: new Date('2020/09/01'),
           },
           link: {
             url: 'http://covid.shawsean.com',
@@ -158,12 +159,13 @@ const Content = (props: ContentProps) => {
           subtitle: 'Student Pilot, RV-12 Builder',
           text:
             `
-            *Built and flew* an *FAA-certified*, two-seater airplane (Van's RV-12) with a team of students *1,000 miles* across the U.S. to the largest general aviation airshow in the country (Airventure Oshkosh)
-            Built avionics, control system, wing-box, tail, and right-wing.
+            *Built* an *FAA-certified*, *two-seater airplane* (Van's RV-12) with a team of students 
+            Personally *flew it 1,000 miles* across the U.S. to the *largest general aviation airshow* in the country (Airventure Oshkosh)
+            Specifically built the avionics, control system, wing-box, tail, and right-wing.
             `,
           range: {
-            start: new Date('2020-04-01'),
-            end: new Date('2020-06-01'),
+            start: new Date('2020/04/01'),
+            end: new Date('2020/06/01'),
           },
           link: {
             url: 'https://www.eaa.org/airventure',

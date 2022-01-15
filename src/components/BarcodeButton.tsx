@@ -40,6 +40,7 @@ const Centering = styled.div`
   &:hover {
     transform: translate(${format.PIXELS_TO_MOVE_ON_HOVER}px, 0);
   }
+  scrollbar-color: ${color.FOREGROUND} ${color.FOREGROUND};
 `
 
 export type BarcodeBarProps = {

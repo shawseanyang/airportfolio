@@ -16,6 +16,9 @@ export function isCarouselProps(props: any): props is CarouselProps {
 const ScrollContainer = styled.div`
   overflow-x: scroll;
   padding-bottom: 20px;
+  /* Firefox */
+  scrollbar-color: ${color.BACKGROUND} ${color.BACKGROUND};
+  /* Webkit */
   &::-webkit-scrollbar {
     background: ${color.BACKGROUND};
   }
