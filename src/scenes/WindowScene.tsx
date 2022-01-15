@@ -72,7 +72,7 @@ const FadeOut = styled.div`
 const RunwayLight = styled.div`
   width: 5px;
   height: 5px;
-  background-color: ${color.MAIN};
+  background-color: ${color.BACKGROUND};
   border-radius: 50%;
 `
 
