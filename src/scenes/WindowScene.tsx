@@ -10,6 +10,7 @@ import { Timeline, Tween } from 'react-gsap';
 import { Stack } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import Text from '../typography/Text';
 
 const InteriorWall = styled(Stack)`
   background-color: ${color.BACKGROUND};
@@ -76,6 +77,13 @@ const RunwayLight = styled.div`
   border-radius: 50%;
 `
 
+const Ghost = styled.div`
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+`
+
 const ScrollDown = () => (
   <div style={{
     display: 'flex',
@@ -83,12 +91,18 @@ const ScrollDown = () => (
     alignItems: 'center',
     margin: '30px',
   }}>
-    <Stack gap={3} style={{maxWidth: 'fit-content'}}>
-      <Tween  to={{ transform: 'scale(1.2)', background: color.HIGHLIGHT, color: color.HIGHLIGHT }} stagger={0.2} repeat={-1} ease="elastic.out(0.2, 0.1)">
-        <RunwayLight />
+    <Stack gap={3} style={{maxWidth: 'fit-content', alignItems: 'center'}}>
+      <Tween to={{ transform: 'scale(1.2)', background: color.HIGHLIGHT }} duration={1} stagger={0.2} repeat={-1} ease="elastic.out(0.2, 0.1)">
         <RunwayLight />
         <RunwayLight />
       </Tween>
+      <div>
+        <Tween to={{ transform: 'scale(1.2)', color: color.HIGHLIGHT }} duration={1} stagger={0.2} repeat={-1} ease="elastic.out(0.2, 0.1)">
+          <Ghost />
+          <Ghost />
+          <div style={{color: color.BACKGROUND}}><FontAwesomeIcon icon={faChevronDown} size="1x" /></div>
+        </Tween>
+      </div>
     </Stack>
   </div>
 );
@@ -134,13 +148,21 @@ const WindowScene = () => {
               >
                 <Stacker 
                   style={{
-                    width: `${
-                      interpolate({
-                        start: {x:0.15, y:25},
-                        end: {x:0.3, y:100},
-                      }, progress)
-                    }%`
-                  }}
+                    width: (
+                      (window.innerHeight < window.innerWidth)
+                      ? `${
+                          interpolate({
+                            start: {x:0.15, y:25},
+                            end: {x:0.3, y:100},
+                          }, progress)
+                        }%`
+                      : `${
+                          interpolate({
+                            start: {x:0.15, y:50},
+                            end: {x:0.3, y:100},
+                          }, progress)
+                        }%`),
+                    }}
                 >
                   <Window 
                     shadePercentage={
