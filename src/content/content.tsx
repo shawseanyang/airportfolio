@@ -6,7 +6,6 @@ import { SectionProps } from '../components/Section';
 import OshKoshMe from '../media/oshkosh/me.jpg';
 import OshKoshClass from '../media/oshkosh/class.jpg';
 import OshKoshPlane from '../media/oshkosh/plane.jpg';
-import RevolveDemoEastCost from '../media/awshackathon/Revolve Demo East Coast.gif';
 import ThreeToTwoDataPanelOpen from '../media/awshackathon/3to2_data_panel_open.png';
 import LandingPage from '../media/awshackathon/Landing Page.png';
 import VariableChangeDemo from '../media/awshackathon/Variable Change Demo.gif';
@@ -148,7 +147,6 @@ const ticketSections: SectionProps[] =
           carouselImageSources: [
             ThreeToTwoDataPanelOpen,
             LandingPage,
-            RevolveDemoEastCost,
             VariableChangeDemo
           ]
         },
