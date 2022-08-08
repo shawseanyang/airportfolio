@@ -13,6 +13,7 @@ import UncdfCountry from '../media/uncdf/country.png';
 import UncdfMap from '../media/uncdf/map.png';
 import UncdfMetric from '../media/uncdf/metric.png';
 import TitleImage from '../components/Ticket/TitleImage';
+import GoogleLogo from '../media/titles/google.png';
 import AmazonLogo from '../media/titles/amazon.png';
 import NasaLogo from '../media/titles/nasa.png';
 import HarvardLogo from '../media/titles/harvard.png';
@@ -53,6 +54,24 @@ const ticketSections: SectionProps[] =
       title: 'Cruise',
       subtitle: 'Work experience',
       tickets: [
+        {
+          title: <TitleImage src={GoogleLogo} />,
+          subtitle: 'Software Engineering Intern',
+          text:
+            `
+            *Upgraded* my team's *product processor and attribute* in *Google Shopping's product database* to a new, global data representation for listings. The new shape *consolidated storage by 2x to 3x* by sharing and de-duplicating data across regions.
+            Started with a single *ambiguous bug ticket* and performed a *lengthy investigation* that involved *leading cross-team discussions* to identify expectations and constraints
+            Designed the upgraded processor and attribute with scale in mind, because it handles all *4 billion+ listings* multiple times a day. This involved *whiteboarding a new algorithm* to process the new data shape efficiently, *migrating 5 TiB's of existing data*, and *fully unit-testing* the resulting code.
+            `,
+          range: {
+            start: new Date('2022/05/15'),
+            end: new Date('2022/08/19'),
+          },
+          link: {
+            url: 'http://shopping.google.com',
+            displayText: 'Google',
+          }
+        },
         {
           title: <TitleImage src={AmazonLogo} />,
           subtitle: 'Software Engineering Intern',
