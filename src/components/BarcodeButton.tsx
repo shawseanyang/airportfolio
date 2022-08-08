@@ -35,7 +35,7 @@ const Centering = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
   transition: ${format.TRANSITION_DURATION}s;
   &:hover {
     transform: translate(${format.PIXELS_TO_MOVE_ON_HOVER}px, 0);
