@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import format from "../constants/format";
 import Bold from "../typography/Bold";
+import Underline from "../typography/Underline";
 
 const FlexLink = styled.a`
   display: flex;
@@ -11,7 +12,6 @@ const FlexLink = styled.a`
   align-items: center;
   transition: ${format.TRANSITION_DURATION}s;
   cursor: pointer;
-  text-decoration: none;
   &:hover > * {
     color: ${color.HIGHLIGHT};
   }
@@ -43,6 +43,11 @@ const Centering = styled.div`
   scrollbar-color: ${color.FOREGROUND} ${color.FOREGROUND};
 `
 
+const BarcodeBarFill = styled.div`
+  background-color: ${color.BACKGROUND};
+  height: 100%;
+`
+
 export type BarcodeBarProps = {
   pixels: number;
   paddingRight?: number;
@@ -56,10 +61,7 @@ const BarcodeBar = (props: BarcodeBarProps) => (
     paddingRight: props.paddingLeft ? props.paddingRight : 4,
     flexShrink: 0,
   }}>
-    <div style={{
-      backgroundColor: color.BACKGROUND,
-      height: '100%'
-    }} />
+    <BarcodeBarFill />
   </div>
 );
 
@@ -69,26 +71,26 @@ export type BarcodeButtonProps = {
 }
 
 const BarcodeButton = (props: BarcodeButtonProps) => (
-  <Centering>
-    <FlexLink href={props.url} target='_blank'>
-      <BarcodeBar pixels={18} paddingRight={0}/>
-      <BarcodeBar pixels={13}/>
-      <BarcodeBar pixels={16}/>
-      <BarcodeBar pixels={13}/>
-      <BarcodeBar pixels={20}/>
-      <BarcodeBar pixels={16}/>
-      <ButtonItself>
-        <Bold overrideColor={false}>{props.displayText}</Bold>
-      </ButtonItself>
-      <BarcodeBar pixels={13}/>
-      <BarcodeBar pixels={11}/>
-      <BarcodeBar pixels={20}/>
-      <BarcodeBar pixels={13}/>
-      <BarcodeBar pixels={16}/>
-      <BarcodeBar pixels={12}/>
-      <BarcodeBar pixels={11} paddingLeft={0}/>
-    </FlexLink>
-  </Centering>
+    <Centering>
+      <FlexLink href={props.url} target='_blank'>
+        <BarcodeBar pixels={18} paddingRight={0}/>
+        <BarcodeBar pixels={13}/>
+        <BarcodeBar pixels={16}/>
+        <BarcodeBar pixels={13}/>
+        <BarcodeBar pixels={20}/>
+        <BarcodeBar pixels={16}/>
+        <ButtonItself>
+        <Underline><Bold overrideColor={false}>{props.displayText}</Bold></Underline>
+        </ButtonItself>
+        <BarcodeBar pixels={13}/>
+        <BarcodeBar pixels={11}/>
+        <BarcodeBar pixels={20}/>
+        <BarcodeBar pixels={13}/>
+        <BarcodeBar pixels={16}/>
+        <BarcodeBar pixels={12}/>
+        <BarcodeBar pixels={11} paddingLeft={0}/>
+      </FlexLink>
+    </Centering>
 );
 
 export default BarcodeButton

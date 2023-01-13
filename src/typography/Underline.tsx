@@ -4,7 +4,7 @@ import { font, fontSize } from '../constants/fonts';
 import color from '../constants/colors';
 
 const Underlined = styled.span`
-  text-decoration: underline;
+  text-decoration: underline !important;
 `;
 
 export type UnderlineProps = {
@@ -13,7 +13,7 @@ export type UnderlineProps = {
   overrideFont?: boolean,
 }
 
-const Underline = ({children, overrideColor=true, overrideFont=true}: UnderlineProps) => (
+const Underline = ({children, overrideColor=false, overrideFont=false}: UnderlineProps) => (
   <Underlined>
     {
       overrideColor && overrideFont 
