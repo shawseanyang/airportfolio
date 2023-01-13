@@ -3,6 +3,7 @@ import BigTextBlock, { BigTextBlockProps } from '../components/BigTextBlock';
 import TicketsBlock, { TicketsBlockProps } from '../components/TicketsBlock';
 import Navbar, { NavBarProps } from '../components/Navbar';
 import { SectionProps } from '../components/Section';
+import SymbolStudioShowcase from '../media/symbolstudio/showcase.png'
 import OshKoshMe from '../media/oshkosh/me.jpg';
 import OshKoshClass from '../media/oshkosh/class.jpg';
 import OshKoshPlane from '../media/oshkosh/plane.jpg';
@@ -90,6 +91,12 @@ const ticketSections: SectionProps[] =
             displayText: 'Amazon',
           }
         },
+      ],
+    },
+    {
+      id: 'research',
+      title: 'Research',
+      tickets: [
         {
           title: <TitleImage src={NasaLogo} />,
           subtitle: 'SEES Research Intern',
@@ -107,6 +114,28 @@ const ticketSections: SectionProps[] =
             url: 'http://www.tsgc.utexas.edu/sees-internship/',
             displayText: 'SEES',
           }
+        },
+        {
+          title: 'SymbolStudio',
+          subtitle: 'Human-computer interaction (HCI) paper',
+          text:
+            `
+            *Paper:* helping designers create illustrations combining multiple abstract concepts. Prototype + 12-user user study.
+            *Abstract:* While brainstorming designs for concepts, designers regularly use tools like Google Images to spark creativity, find references, and generate ideas. AI-powered tools have the ability to inspire creativity by generating ideas that the designer may not have thought of. Word association clouds can help designers create more creative symbols [5]. Harnessing these two affordances, we present SymbolStudio, an interactive AI-powered tool for generating symbols that represent multiple abstract concepts. Using SymbolStudio, we investigate how AI-facilitated visual brainstorming helps both novice and experienced designers. SymbolStudio takes advantage of the proven benefit of word association clouds in concert with the generative capabilities of OpenAI's DALL-E 2 image generation system [6].
+            `,
+          range: {
+            start: new Date('2022/09/01'),
+            end: new Date('2022/12/15'),
+          },
+          link: {
+            url: 'https://drive.google.com/file/d/1KkkQNxzWuBjjX0D9CSYfgjVCmn12EqwB/view?usp=sharing',
+            displayText: 'Paper',
+          }
+        },
+        {
+          carouselImageSources: [
+            SymbolStudioShowcase
+          ]
         },
       ],
     },
