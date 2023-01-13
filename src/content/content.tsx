@@ -132,11 +132,11 @@ const ticketSections: SectionProps[] =
             displayText: 'Paper',
           }
         },
-        {
-          carouselImageSources: [
-            SymbolStudioShowcase
-          ]
-        },
+        // {
+        //   carouselImageSources: [
+        //     SymbolStudioShowcase
+        //   ]
+        // },
         {
           title: 'BLAPs',
           subtitle: 'A differentially private counting bloom filter',
