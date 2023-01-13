@@ -40,7 +40,7 @@ const MyNavbar = (props: NavBarProps) => (
                 direction={
                   index >= props.activeLink 
                     ? index === props.activeLink 
-                      ? 'e' 
+                      ? 'w' 
                       : 's'
                     : 'n'
                 }
