@@ -28,8 +28,7 @@ const ticketSections: SectionProps[] =
   [
     {
       id: 'edu',
-      title: 'Take Off',
-      subtitle: 'Education',
+      title: 'Education',
       tickets: [
         {
           title: <TitleImage src={HarvardLogo} />,
@@ -51,8 +50,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'work',
-      title: 'Cruise',
-      subtitle: 'Work experience',
+      title: 'Work Experience',
       tickets: [
         {
           title: <TitleImage src={GoogleLogo} />,
@@ -114,8 +112,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'projects',
-      title: 'In-Flight Entertainment',
-      subtitle: 'Projects',
+      title: 'Projects',
       tickets: [
         {
           title: <TitleImage src={T4SGLogo} />,
@@ -199,8 +196,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'skills',
-      title: 'Meal Service',
-      subtitle: 'Skills',
+      title: 'Skills',
       tickets: [
         {
           title: 'Skills',
@@ -218,8 +214,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'contact',
-      title: 'Connecting Flights',
-      subtitle: 'Connect with me',
+      title: 'Connect with me',
       tickets: [
         {
           email: 'shaw.sean.yang@gmail.com',
