@@ -50,7 +50,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'work',
-      title: 'Work Experience',
+      title: 'Work',
       tickets: [
         {
           title: <TitleImage src={GoogleLogo} />,
@@ -214,7 +214,7 @@ const ticketSections: SectionProps[] =
     },
     {
       id: 'contact',
-      title: 'Connect with me',
+      title: 'Contact',
       tickets: [
         {
           email: 'shaw.sean.yang@gmail.com',
