@@ -120,7 +120,7 @@ const ticketSections: SectionProps[] =
           subtitle: 'Human-computer interaction (HCI) paper',
           text:
             `
-            *Paper:* helping designers create illustrations combining multiple abstract concepts. Prototype + 12-user user study.
+            *Gist:* Help designers create illustrations combining multiple abstract concepts. Prototype + 12-user user study.
             *Abstract:* While brainstorming designs for concepts, designers regularly use tools like Google Images to spark creativity, find references, and generate ideas. AI-powered tools have the ability to inspire creativity by generating ideas that the designer may not have thought of. Word association clouds can help designers create more creative symbols [5]. Harnessing these two affordances, we present SymbolStudio, an interactive AI-powered tool for generating symbols that represent multiple abstract concepts. Using SymbolStudio, we investigate how AI-facilitated visual brainstorming helps both novice and experienced designers. SymbolStudio takes advantage of the proven benefit of word association clouds in concert with the generative capabilities of OpenAI's DALL-E 2 image generation system [6].
             `,
           range: {
@@ -129,6 +129,28 @@ const ticketSections: SectionProps[] =
           },
           link: {
             url: 'https://drive.google.com/file/d/1KkkQNxzWuBjjX0D9CSYfgjVCmn12EqwB/view?usp=sharing',
+            displayText: 'Paper',
+          }
+        },
+        {
+          carouselImageSources: [
+            SymbolStudioShowcase
+          ]
+        },
+        {
+          title: 'BLAPs',
+          subtitle: 'A differentially private counting bloom filter',
+          text:
+            `
+            *Gist:* Analyze the theoretical and simulated performance of a particular design for differentially private counting bloom filters.
+            *Abstract:* Counting bloom filters (CBFs) are compact randomized data structures that represent large data streams with potentially repeating items. In this work, we study how to make CBFs differentially private, with privacy loss staying constant with more items getting hashed into the CBF. We introduce BLAP (“Bloom-then-LAPlace”), a mechanism for differentially private computation on CBFs that involves adding Laplace-distributed random noise on CBF counter values. We formally quantify the differential privacy guarantees of BLAP in terms of privacy loss parameter ε, as well as BLAP's false positive and false negative rates (FPRs and FNRs) on set membership and count thresholding queries (with deletion) ... see full paper for more.
+            `,
+          range: {
+            start: new Date('2022/09/01'),
+            end: new Date('2022/12/15'),
+          },
+          link: {
+            url: 'https://drive.google.com/file/d/1W98obQkuEQ6H9JoiBIH9VdUBCChOd__C/view?usp=sharing',
             displayText: 'Paper',
           }
         },
