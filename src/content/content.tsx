@@ -154,11 +154,6 @@ const ticketSections: SectionProps[] =
             displayText: 'Paper',
           }
         },
-        {
-          carouselImageSources: [
-            SymbolStudioShowcase
-          ]
-        },
       ],
     },
     {
