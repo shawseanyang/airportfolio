@@ -24,6 +24,8 @@ export type SectionHeaderProps = {
   subtitle?: string;
 }
 
+// Puts in an empty but space-holding span if no subtitle is provided, that way the remaining letters of the title remain top-aligned regardless of whether there is a subtitle or not.
+
 const SectionHeader = (props: SectionHeaderProps) => (
   <Container fluid={format.MOBILE_BREAKPOINT} className={'px-3'}>
   <Row>
@@ -34,13 +36,13 @@ const SectionHeader = (props: SectionHeaderProps) => (
           <Stack gap={0} style={{justifyContent: 'center'}}>
             <Caps><Bold>{props.title.slice(1)}</Bold></Caps>
             <span style={{color: color.FOREGROUND}}>
-              {props.subtitle && <Bold overrideColor={false}>{props.subtitle}</Bold>}
+              {props.subtitle ? <Bold overrideColor={false}>{props.subtitle}</Bold> : <span>&nbsp;</span>}
             </span>
           </Stack>
         </Stack>
       </Header>
       <Ghost />
-  </Row>
+    </Row>
   </Container>
 )
 
