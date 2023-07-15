@@ -17,10 +17,10 @@ import { Stack } from 'react-bootstrap';
 import Title from '../../typography/Title';
 
 export type TicketProps = {
-  title: TitleImageProps | string;
-  keyValuePairs: KeyValuePairsProps;
-  dateRange: AirplaneRangeProps;
-  barcode: BarcodeButtonProps;
+  title?: TitleImageProps | string;
+  keyValuePairs?: KeyValuePairsProps;
+  dateRange?: AirplaneRangeProps;
+  barcode?: BarcodeButtonProps;
 }
 
 const TicketContainer = styled(Container)`
@@ -40,9 +40,9 @@ const Ticket = (props: TicketProps) => {
         <Stack>
           {typeof props.title === 'string'
             ? <Title>{props.title}</Title>
-            : <TitleImage {...props.title} /> }
-          <KeyValuePairs {...props.keyValuePairs} />
-          <AirplaneRange {...props.dateRange} />
+            : props.title && <TitleImage {...props.title} />}
+          {props.keyValuePairs && <KeyValuePairs {...props.keyValuePairs} />}
+          {props.dateRange && <AirplaneRange {...props.dateRange} />}
         </Stack>
       </TicketContainer>
     </FollowMouse>
