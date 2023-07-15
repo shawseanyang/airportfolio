@@ -1,8 +1,8 @@
 import { Row } from "react-bootstrap";
-import Ticket, { ParsableTicketProps } from "./Ticket/Ticket"
+import Ticket, { TicketProps } from "./Ticket/Ticket"
 
 export type EntryProps = {
-  ticketProps: ParsableTicketProps;
+  ticketProps: TicketProps;
   bulletPoints: string[];
 }
 

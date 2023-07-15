@@ -9,13 +9,20 @@ import Perforation from './Perforation';
 import Stub, { StubProps } from './Stub';
 import FollowMouse from '../FollowMouse';
 import MediaQuery from 'react-responsive'
+import { TitleImageProps } from './TitleImage';
+import { AirplaneRangeProps } from '../AirplaneRange';
+import { BarcodeButtonProps } from '../BarcodeButton';
 
-export type TicketProps = StubProps & BodyProps
+export type KeyValuePair = {
+  key: string;
+  value: string;
+}
 
- // TicketProps but replace children with a string
-export type ParsableTicketProps =
-  Omit<TicketProps, 'children'> & {
-    text: string;
+export type TicketProps = {
+  title: TitleImageProps | string;
+  keyValuePairs: KeyValuePair[];
+  dateRange: AirplaneRangeProps;
+  barcode: BarcodeButtonProps;
 }
 
 const TicketContainer = styled(Container)`
@@ -32,26 +39,7 @@ const Ticket = (props: TicketProps) => {
         fluid={format.MOBILE_BREAKPOINT}
         className={'p-5'}
       >
-        <Row>
-          <Stub {...props} />
-          <Col
-          {...{[format.MOBILE_BREAKPOINT as string]: poportions.space}}
-          style={{
-            minHeight: '50px'
-          }}
-          />
-          <Body {...props} />
-        </Row>
-        <MediaQuery minWidth={format.MOBILE_BREAKPOINT_PIXELS}>
-          {/* Desktop */}
-          <Perforation position={'top'} />
-          <Perforation position={'bottom'} />
-        </MediaQuery>
-        <MediaQuery maxWidth={format.MOBILE_BREAKPOINT_PIXELS}>
-          {/* Mobile */}
-          <Perforation position={'left'} />
-          <Perforation position={'right'} />
-        </MediaQuery>
+        {/* TODO: fill in */}
       </TicketContainer>
     </FollowMouse>
   )
