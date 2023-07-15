@@ -11,7 +11,7 @@ import FollowMouse from '../FollowMouse';
 import MediaQuery from 'react-responsive'
 import TitleImage, { TitleImageProps } from './TitleImage';
 import AirplaneRange, { AirplaneRangeProps } from '../AirplaneRange';
-import { BarcodeButtonProps } from '../BarcodeButton';
+import BarcodeButton, { BarcodeButtonProps } from '../BarcodeButton';
 import KeyValuePairs, { KeyValuePairsProps } from './KeyValuePairs';
 import { Stack } from 'react-bootstrap';
 import Title from '../../typography/Title';
@@ -43,6 +43,7 @@ const Ticket = (props: TicketProps) => {
             : props.title && <TitleImage {...props.title} />}
           {props.keyValuePairs && <KeyValuePairs {...props.keyValuePairs} />}
           {props.dateRange && <AirplaneRange {...props.dateRange} />}
+          {props.barcode && <BarcodeButton {...props.barcode} />}
         </Stack>
       </TicketContainer>
     </FollowMouse>
