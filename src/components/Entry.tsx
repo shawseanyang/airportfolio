@@ -2,14 +2,14 @@ import { Row } from "react-bootstrap";
 import Ticket, { TicketProps } from "./Ticket/Ticket"
 
 export type EntryProps = {
-  ticketProps: TicketProps;
+  ticket: TicketProps;
   bulletPoints: string[];
 }
 
 const Entry = (props: EntryProps) => {
   return (
     <Row>
-      <Ticket {...props.ticketProps}>
+      <Ticket {...props.ticket}>
         {/* TODO: remove once Ticket is refactored to not take children */}
       </Ticket>
       {props.bulletPoints.map((bulletPoint, index) => (
