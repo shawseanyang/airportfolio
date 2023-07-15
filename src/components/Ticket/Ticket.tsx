@@ -9,10 +9,12 @@ import Perforation from './Perforation';
 import Stub, { StubProps } from './Stub';
 import FollowMouse from '../FollowMouse';
 import MediaQuery from 'react-responsive'
-import { TitleImageProps } from './TitleImage';
-import { AirplaneRangeProps } from '../AirplaneRange';
+import TitleImage, { TitleImageProps } from './TitleImage';
+import AirplaneRange, { AirplaneRangeProps } from '../AirplaneRange';
 import { BarcodeButtonProps } from '../BarcodeButton';
-import { KeyValuePairsProps } from './KeyValuePairs';
+import KeyValuePairs, { KeyValuePairsProps } from './KeyValuePairs';
+import { Stack } from 'react-bootstrap';
+import Title from '../../typography/Title';
 
 export type TicketProps = {
   title: TitleImageProps | string;
@@ -35,7 +37,13 @@ const Ticket = (props: TicketProps) => {
         fluid={format.MOBILE_BREAKPOINT}
         className={'p-5'}
       >
-        {/* TODO: fill in */}
+        <Stack>
+          {typeof props.title === 'string'
+            ? <Title>{props.title}</Title>
+            : <TitleImage {...props.title} /> }
+          <KeyValuePairs {...props.keyValuePairs} />
+          <AirplaneRange {...props.dateRange} />
+        </Stack>
       </TicketContainer>
     </FollowMouse>
   )
