@@ -12,15 +12,11 @@ import MediaQuery from 'react-responsive'
 import { TitleImageProps } from './TitleImage';
 import { AirplaneRangeProps } from '../AirplaneRange';
 import { BarcodeButtonProps } from '../BarcodeButton';
-
-export type KeyValuePair = {
-  key: string;
-  value: string;
-}
+import { KeyValuePairsProps } from './KeyValuePairs';
 
 export type TicketProps = {
   title: TitleImageProps | string;
-  keyValuePairs: KeyValuePair[];
+  keyValuePairs: KeyValuePairsProps;
   dateRange: AirplaneRangeProps;
   barcode: BarcodeButtonProps;
 }
