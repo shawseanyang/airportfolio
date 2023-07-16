@@ -3,6 +3,8 @@
 
 export type Theme = {
   BACKGROUND: string;
+  MID: string;
+    // Boarding pass color
   FOREGROUND: string;
   MAIN: string;
   HIGHLIGHT: string;
@@ -12,9 +14,10 @@ export type Theme = {
 
 export const darkMode: Theme = {
   BACKGROUND: '#04182E',
-  FOREGROUND: '#0B223B',
-  MAIN: '#FFFFFF',
-  HIGHLIGHT: '#0D81D7',
+  MID: '#254774',
+  FOREGROUND: '#254774',
+  MAIN: '#04182E',
+  HIGHLIGHT: '#FFFFFF',
   SKY_IMAGE_COLOR: '#107FD7',
 }
 
