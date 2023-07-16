@@ -25,8 +25,49 @@ export type ContentProps = {
   activeLink: number;
 }
 
+// TODO: figure out why adding in the content makes the page go completely blank
+
 const ticketSections: SectionProps[] = 
-  [];
+  [
+    {
+      id: 'experience',
+      title: 'Experience',
+      entries: [
+        {
+          ticket: {
+            title: {
+              src: GoogleLogo,
+            },
+            keyValuePairs: {
+              pairs: [
+                {
+                  key: 'Title',
+                  value: 'Software Engineering Intern',
+                },
+                {
+                  key: 'Location',
+                  value: 'Mountain View, CA',
+                }
+              ]
+            },
+            dateRange: {
+              start: new Date('2021-05-24'),
+              end: new Date('2021-08-13'),
+            },
+            barcode: {
+              url: 'https://www.linkedin.com/in/sean-yang-1b1b1b1b1/',
+              displayText: 'LinkedIn',
+            }
+          },
+          bulletPoints: [
+            'This is some placeholder text for the first of many bullet points.',
+            'Here is some more placeholder text for the second bullet point.',
+            'This is the third bullet point.',
+          ]
+        }
+      ]
+    }
+  ];
 
 export const NUMBER_OF_SECTIONS = ticketSections.length;
 
