@@ -8,6 +8,11 @@ import Justified from '../typography/Justified';
 import Symbol from '../typography/Symbol';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlane } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components';
+import color from '../constants/colors';
+import BigBoldHighlight from '../typography/BigBoldHighlight';
+import BigHighlight from '../typography/BigHighlight';
+import { Stack } from 'react-bootstrap';
 
 export type AirplaneRangeProps = {
   start: Date | string;
@@ -19,22 +24,25 @@ function getThreeLetterMonth(d: Date): string {
 }
 
 const DateFormatter = (props:{date: Date}) => (
-  <div style={{
-    width: 'fit-content',
-    margin: '0'
-  }}>
-    <Caps>
-      <Justified text={getThreeLetterMonth(props.date)} />
-    </Caps>
-    <Text>
+  <Stack>
+    <BigBoldHighlight>
+      {getThreeLetterMonth(props.date)}
+    </BigBoldHighlight>
+    <BigHighlight>
       {props.date.getFullYear()}
-    </Text>
-  </div>
+    </BigHighlight>
+  </Stack>
+)
+
+const Arc = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="138" viewBox="0 0 225 311" fill="none">
+    <path d="M0.894531 3.01111C296.395 3.01111 294.895 308.011 0.894531 308.011" stroke="#254774" stroke-width="5" stroke-dasharray="20 20"/>
+  </svg>
 )
 
 const AirplaneRange = (props: AirplaneRangeProps) => (
   <Container className={'px-0'}>
-    <Row>
+    {/* <Row>
       <Col style={{
         maxWidth: 'fit-content'
       }}>
@@ -62,6 +70,27 @@ const AirplaneRange = (props: AirplaneRangeProps) => (
           ? <Bold>{props.end}</Bold>
           : <DateFormatter date={props.end} />
         }
+      </Col>
+    </Row> */}
+    <Row>
+      <Col>
+      <Row>
+        {
+          typeof props.start === 'string'
+          ? <BigBoldHighlight>{props.start}</BigBoldHighlight>
+          : <DateFormatter date={props.start} />
+        }
+      </Row>
+      <Row>
+        {
+          typeof props.end === 'string'
+          ? <BigBoldHighlight>{props.end}</BigBoldHighlight>
+          : <DateFormatter date={props.end} />
+        }
+      </Row>
+      </Col>
+      <Col>
+        <Arc />
       </Col>
     </Row>
   </Container>
