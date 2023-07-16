@@ -44,7 +44,7 @@ const Ticket = (props: TicketProps) => {
         fluid={format.MOBILE_BREAKPOINT}
         className={'p-5'}
       >
-        <Stack gap={4}>
+        <Stack gap={5}>
           <Center>
             {props.title &&
               (typeof props.title === 'string'
