@@ -36,7 +36,7 @@ function App() {
   });
 
   // Set background
-  document.body.style.backgroundColor = color.BACKGROUND;
+  document.body.style.backgroundColor = color.FOREGROUND;
 
   return (
     <div>
