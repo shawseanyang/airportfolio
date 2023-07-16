@@ -1,4 +1,3 @@
-import Text from './Text';
 import styled from 'styled-components';
 import { font, fontSize } from '../constants/fonts';
 import color from '../constants/colors';
@@ -18,9 +17,7 @@ const Bold = ({children, overrideColor=true, overrideFont=true}: BoldProps) => (
     {
       overrideColor && overrideFont 
       ?
-        <Text>
-          {children}
-        </Text>
+        children
       :
         overrideColor && !overrideFont
         ?

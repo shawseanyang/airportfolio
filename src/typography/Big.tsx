@@ -1,4 +1,3 @@
-import Text from './Text';
 import { fontSize } from '../constants/fonts';
 
 const Big:React.FC = ({ children }) => (
@@ -6,9 +5,7 @@ const Big:React.FC = ({ children }) => (
     style={{
       fontSize: fontSize.BIG,
     }}>
-    <Text>
       {children}
-    </Text>
   </span>
 );
 
