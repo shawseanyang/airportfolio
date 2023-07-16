@@ -16,7 +16,7 @@ const StyledSocialIcon = styled(SocialIcon)`
 
 const Footer = () => (
   <>
-    <Stack gap={5}>
+    {/* <Stack gap={5}>
       <Row>
         <Col />
         <Col style={{display: 'flex', justifyContent: 'center'}}>
@@ -49,7 +49,7 @@ const Footer = () => (
       </Row>
       <Row />
       <Row />
-    </Stack>
+    </Stack> */}
   </>
 );
 export default Footer;
