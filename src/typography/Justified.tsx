@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Text from './Text';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ const Justified = (props: {text: string}) => (
   <FlexContainer>
     {props.text.split('').map((c, i) => (
       <FlexItem key={i}>
-        <Text>{c}</Text>
+        {c}
       </FlexItem>
     ))}
   </FlexContainer>
