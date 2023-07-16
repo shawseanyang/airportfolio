@@ -24,10 +24,17 @@ export type TicketProps = {
 }
 
 const TicketContainer = styled(Container)`
-  background-color: ${color.FOREGROUND};
+  background-color: ${color.MID};
   border-radius: ${format.BORDER_RADIUS}px;
   position: relative;
   transition: ${format.TRANSITION_DURATION}s;
+  width: 300px;
+  padding: 50px 50px;
+  overflow: hidden;
+`
+
+const Center = styled.div`
+  align-self: center;
 `
 
 const Ticket = (props: TicketProps) => {
@@ -37,10 +44,13 @@ const Ticket = (props: TicketProps) => {
         fluid={format.MOBILE_BREAKPOINT}
         className={'p-5'}
       >
-        <Stack>
-          {typeof props.title === 'string'
-            ? <Title>{props.title}</Title>
-            : props.title && <TitleImage {...props.title} />}
+        <Stack gap={4}>
+          <Center>
+            {props.title &&
+              (typeof props.title === 'string'
+                ? <Title>{props.title}</Title>
+                : <TitleImage {...props.title} />)}
+          </Center>
           {props.keyValuePairs && <KeyValuePairs {...props.keyValuePairs} />}
           {props.dateRange && <AirplaneRange {...props.dateRange} />}
           {props.barcode && <BarcodeButton {...props.barcode} />}

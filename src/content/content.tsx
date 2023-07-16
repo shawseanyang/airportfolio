@@ -46,7 +46,11 @@ const ticketSections: SectionProps[] =
                 },
                 {
                   key: 'Location',
-                  value: 'Mountain View, CA',
+                  value: 'Sunnyvale, CA',
+                },
+                {
+                  key: 'Department',
+                  value: 'Core',
                 }
               ]
             },
@@ -54,10 +58,6 @@ const ticketSections: SectionProps[] =
               start: new Date('2021-05-24'),
               end: new Date('2021-08-13'),
             },
-            barcode: {
-              url: 'https://www.linkedin.com/in/sean-yang-1b1b1b1b1/',
-              displayText: 'LinkedIn',
-            }
           },
           bulletPoints: [
             'This is some placeholder text for the first of many bullet points.',

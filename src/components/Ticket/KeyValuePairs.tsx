@@ -1,4 +1,6 @@
 import { Stack } from "react-bootstrap";
+import BoldForegroundCaps from "../../typography/BoldForegroundCaps";
+import BoldHighlight from "../../typography/BoldHighlight";
 
 export type KeyValuePair = {
   key: string;
@@ -23,12 +25,12 @@ export type KeyValuePairsProps = {
 // </Stack>
 const KeyValuePairs = (props: KeyValuePairsProps) => (
   props.pairs.length > 0
-    ? <Stack>
+    ? <Stack gap={3}>
       {props.pairs.map((pair, index) => (
-        <Stack key={index}>
+        <Stack key={index} gap={1}>
           {/* TODO: change to typographic components */}
-          <p>{pair.key}</p>
-          <p>{pair.value}</p>
+          <BoldForegroundCaps>{pair.key}</BoldForegroundCaps>
+          <BoldHighlight>{pair.value}</BoldHighlight>
         </Stack>
       ))}
     </Stack>
