@@ -5,7 +5,7 @@ const Symbol: React.FC = ({children}) => (
   <span style={{
     fontFamily: font.BODY,
     fontSize: fontSize.BODY * 1,
-    color: color.MAIN,
+    color: color.HIGHLIGHT,
   }}>
     {children}
   </span>
