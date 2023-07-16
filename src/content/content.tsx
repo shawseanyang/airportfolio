@@ -77,11 +77,6 @@ const Content = (props: ContentProps) => {
 
   return [
     (
-      <BigTextBlock
-      text="Hi! I'm Sean Yang, and this is my *Airportfolio*"
-      />
-    ),
-    (
       <Navbar
         links={navLinks}
         activeLink={props.activeLink}
