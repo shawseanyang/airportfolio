@@ -3,12 +3,12 @@ import Text from "./Text";
 import Highlight from "./Highlight";
 
 const BoldHighlight:React.FC = ({ children }) => (
-  <Bold>
-    <Highlight>
-        <Text>
+  <Text>
+    <Bold>
+      <Highlight>
           {children}
-        </Text>
-    </Highlight>
-  </Bold>
+      </Highlight>
+    </Bold>
+  </Text>
 );
 export default BoldHighlight;

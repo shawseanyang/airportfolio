@@ -4,14 +4,14 @@ import Text from "./Text";
 import Foreground from "./Foreground";
 
 const BoldForegroundCaps:React.FC = ({ children }) => (
-  <Bold>
-    <Foreground>
-      <Caps>
-        <Text>
-          {children}
-        </Text>
-      </Caps>
-    </Foreground>
-  </Bold>
+  <Text>
+    <Bold>
+      <Foreground>
+        <Caps>
+            {children}
+        </Caps>
+      </Foreground>
+    </Bold>
+  </Text>
 );
 export default BoldForegroundCaps;
