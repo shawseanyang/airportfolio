@@ -8,11 +8,9 @@ const Capped = styled.span`
 
 const Caps:React.FC = ({ children }) => (
   <Capped>
-    <Bold>
       <Text>
         {children}
       </Text>
-    </Bold>
   </Capped>
 );
 

@@ -4,8 +4,9 @@ export const font = {
 }
 
 export const fontSize = {
-  TITLE: 30,
+  TITLE: 200,
   HISTORIATED: 50,
   SUBTITLE: 20,
+  BIG: 20,
   BODY: 15,
 }
