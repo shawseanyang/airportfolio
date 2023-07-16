@@ -38,9 +38,9 @@ export default format
 
 export const poportions = ((proposal = 
   {
-    stub: 3,
-    space: 1,
-    body: 8
+    stub: 6,
+    space: 0,
+    body: 6
   }) => {
   if(Object.values(proposal).reduce((sum, current) => sum + current, 0) !== format.BOOTSTRAP_NUM_COLUMNS) {
     throw new Error('Ticket proportions must sum to the default number of columns in the Bootstrap grid system');

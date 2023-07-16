@@ -12,9 +12,12 @@ const PerforationCircle = styled.div`
   height: ${PERFORATION_SIZE}px;
   width: ${PERFORATION_SIZE}px;
   border-radius: 50%;
-  background-color: ${color.BACKGROUND};
+  background-color: ${color.FOREGROUND};
   position: absolute;
 `
+
+// TODO: make it slice in the middle of space, not in the middle of another
+// component.
 
 const Perforation = (props: PerforationProps) => (
   <>

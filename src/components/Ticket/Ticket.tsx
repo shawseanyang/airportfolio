@@ -55,6 +55,8 @@ const Ticket = (props: TicketProps) => {
           {props.dateRange && <AirplaneRange {...props.dateRange} />}
           {props.barcode && <BarcodeButton {...props.barcode} />}
         </Stack>
+        <Perforation position={'left'}/>
+        <Perforation position={'right'}/>
       </TicketContainer>
     </FollowMouse>
   )
