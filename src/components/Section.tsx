@@ -9,7 +9,7 @@ export type SectionProps = {
 } & SectionHeaderProps;
 
 const Section = forwardRef((props: SectionProps, ref) => (
-  <Stack key={props.id} ref={ref as React.Ref<HTMLSpanElement>} id={props.id} gap={5} className={'my-4'}>
+  <Stack key={props.id} ref={ref as React.Ref<HTMLSpanElement>} id={props.id} gap={5}>
       <SectionHeader {...props}/>
       {props.entries.map((entry, index) => (
         <Entry {...entry} key={index} />

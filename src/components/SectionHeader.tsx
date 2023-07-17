@@ -1,49 +1,61 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import styled from 'styled-components';
-import color from '../constants/colors';
-import Title from '../typography/Title';
-import format from '../constants/format';
-import Bold from '../typography/Bold';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { Stack } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Caps from '../typography/Caps';
-import Historiated from '../typography/Historiated';
-
-const Header = styled(Col)`
-  background-color: ${color.HIGHLIGHT};
-  border-radius: ${format.BORDER_RADIUS}px;
-  border-top-right-radius: 0;
-`
-const Ghost = Col
+import styled from "styled-components";
+import { font, fontSize } from "../constants/fonts";
+import color from "../constants/colors";
 
 export type SectionHeaderProps = {
   title: string;
-  subtitle?: string;
 }
 
-// Puts in an empty but space-holding span if no subtitle is provided, that way the remaining letters of the title remain top-aligned regardless of whether there is a subtitle or not.
+// Pixels to shift the section header down into the content by (allows the tickets to overlap onto the section header).
+const DOWN_SHIFT = 100;
+
+const RIGHT_SHIFT = 10;
+
+// The background of the section header, shifted down by DOWN_SHIFT
+const Background = styled.div`
+  background: ${color.BACKGROUND};
+  position:relative;
+  height: 300px;
+  top: ${DOWN_SHIFT}px;
+  width: 100%;
+  right: -${RIGHT_SHIFT}px;
+`
+
+// To cover up the space left by the Background after its down-shifted
+const CoverUp = styled.div`
+  background: ${color.BACKGROUND};
+  height: ${DOWN_SHIFT}px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: -${RIGHT_SHIFT}px;
+`
+
+const Title = styled.span`
+  font-size: ${fontSize.SECTION_HEADER}px;
+  font-weight: bold;
+  font-family: ${font.TITLE};
+  color: ${color.FOREGROUND};
+  line-height: 1;
+  position: absolute;
+  bottom: -29px;
+  left: -15px;
+`
+
+// A position-relative container for the cover up to anchor against
+const Anchor = styled.div`
+  position: relative;
+`
 
 const SectionHeader = (props: SectionHeaderProps) => (
-  <Container fluid={format.MOBILE_BREAKPOINT} className={'px-3'}>
-  <Row>
-      <Header lg='6' className='px-4 p-2'>
-        <Stack direction='horizontal' gap={2}>
-          <Historiated><FontAwesomeIcon icon={faArrowLeft} /></Historiated>
-          <Historiated>{props.title[0]}</Historiated>
-          <Stack gap={0} style={{justifyContent: 'center'}}>
-            <Caps><Bold>{props.title.slice(1)}</Bold></Caps>
-            <span style={{color: color.FOREGROUND}}>
-              {props.subtitle ? <Bold overrideColor={false}>{props.subtitle}</Bold> : <span>&nbsp;</span>}
-            </span>
-          </Stack>
-        </Stack>
-      </Header>
-      <Ghost />
-    </Row>
-  </Container>
+  <Anchor>
+    <CoverUp />
+    <Background>
+      <Title>
+        {props.title}
+      </Title>
+    </Background>
+  </Anchor>
 )
 
 export default SectionHeader
