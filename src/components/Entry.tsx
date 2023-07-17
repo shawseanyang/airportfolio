@@ -3,16 +3,31 @@ import Ticket, { TicketProps } from "./Ticket/Ticket"
 import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
 import styled from "styled-components";
+import { getRandomRotationDegree } from "../utils/rotate";
 
 export type EntryProps = {
   ticket: TicketProps;
   bulletPoints: string[];
+  imageUrl?: string;
 }
 
-const BulletPoints = styled(Col)`
+const Content = styled(Col)`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 50px;
 `
+
+const Image = (props: {src: string}) => (
+  <img src={props.src} alt={props.src} style={{
+    maxWidth: '80%',
+    maxHeight: '300px',
+    borderRadius: format.BORDER_RADIUS,
+    filter: format.DROP_SHADOW,
+    transform: `rotate(${getRandomRotationDegree()}deg)`,
+  }}/>
+)
 
 const Entry = (props: EntryProps) => {
   return (
@@ -22,7 +37,7 @@ const Entry = (props: EntryProps) => {
         <Ticket {...props.ticket} />
       </Col>
       <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
-      <BulletPoints {...{[format.MOBILE_BREAKPOINT as string]: proportions.BULLETS}}>
+      <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
         <Text>
           <ul>
             <Stack gap={3}>
@@ -34,7 +49,8 @@ const Entry = (props: EntryProps) => {
             </Stack>
           </ul>
         </Text>
-      </BulletPoints>
+        { props.imageUrl && <Image src={props.imageUrl} />}
+      </Content>
       <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.RIGHT_MARGINS}}/>
     </Row>
   )

@@ -133,7 +133,8 @@ const ticketSections: SectionProps[] =
           bulletPoints: [
             'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
             'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
-          ]
+          ],
+          imageUrl: 'https://minimalistphotographyawards.com/wp-content/uploads/2020/08/Emerson_Laura_BluePlanet6.jpg'
         },
         {
           ticket: {
