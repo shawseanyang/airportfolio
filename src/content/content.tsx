@@ -60,9 +60,8 @@ const ticketSections: SectionProps[] =
             },
           },
           bulletPoints: [
-            'This is some placeholder text for the first of many bullet points.',
-            'Here is some more placeholder text for the second bullet point.',
-            'This is the third bullet point.',
+            'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
+            'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
           ]
         }
       ]
