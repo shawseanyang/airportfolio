@@ -1,7 +1,6 @@
 import { BlockAndProps } from '../content/types';
 import BigTextBlock, { BigTextBlockProps } from '../components/BigTextBlock';
 import TicketsBlock, { TicketsBlockProps } from '../components/TicketsBlock';
-import Navbar, { NavBarProps } from '../components/Navbar';
 import { SectionProps } from '../components/Section';
 import SymbolStudioShowcase from '../media/symbolstudio/showcase.png'
 import OshKoshMe from '../media/oshkosh/me.jpg';
@@ -72,15 +71,7 @@ export const NUMBER_OF_SECTIONS = ticketSections.length;
 
 const Content = (props: ContentProps) => {
 
-  const navLinks = ticketSections.map(({ id, title }) => { return { url: id, displayText: title }});
-
   return [
-    (
-      <Navbar
-        links={navLinks}
-        activeLink={props.activeLink}
-      />
-    ),
     (
       <TicketsBlock
         sections={ticketSections}
