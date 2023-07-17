@@ -39,7 +39,6 @@ const TicketContainer = styled(Container)`
   width: 300px;
   padding: 50px 50px;
   overflow: hidden;
-  transform: rotate(${getRandomRotationDegree()}deg);
   filter: drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25));
 `
 
@@ -53,6 +52,9 @@ const Ticket = (props: TicketProps) => {
       <TicketContainer
         fluid={format.MOBILE_BREAKPOINT}
         className={'p-5'}
+        style={{
+          transform: `rotate(${getRandomRotationDegree()}deg)`
+        }}
       >
         <Stack gap={5}>
           <Center>
