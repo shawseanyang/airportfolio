@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import color from '../../constants/colors';
-import format, { poportions } from '../../constants/format';
+import format, { proportions } from '../../constants/format';
 
 export type PerforationProps = {
   position: 'top' | 'bottom' | 'left' | 'right';

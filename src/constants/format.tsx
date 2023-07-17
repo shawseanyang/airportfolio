@@ -36,7 +36,7 @@ const format: Format = {
 
 export default format
 
-export const poportions = ((proposal = 
+export const proportions = ((proposal = 
   {
     stub: 6,
     space: 0,
