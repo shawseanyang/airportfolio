@@ -9,9 +9,7 @@ export type EntryProps = {
 const Entry = (props: EntryProps) => {
   return (
     <Row>
-      <Ticket {...props.ticket}>
-        {/* TODO: remove once Ticket is refactored to not take children */}
-      </Ticket>
+      <Ticket {...props.ticket} />
       {props.bulletPoints.map((bulletPoint, index) => (
         <p key={index}>{bulletPoint}</p>
       ))}
