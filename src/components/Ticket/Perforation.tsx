@@ -28,22 +28,22 @@ const Perforation = (props: PerforationProps) => (
         'top': 
           <PerforationCircle style={{
             top: `-${PERFORATION_SIZE/2}px`,
-            left: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+            left: `50%`
           }} />,
         'bottom': 
           <PerforationCircle style={{
             bottom: `-${PERFORATION_SIZE/2}px`,
-            left: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+            left: `50%`
           }} />,
         'left': 
           <PerforationCircle style={{
             left: `-${PERFORATION_SIZE/2}px`,
-            top: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+            top: `50%`
           }} />,
         'right': 
           <PerforationCircle style={{
             right: `-${PERFORATION_SIZE/2}px`,
-            top: `${100 * ( poportions.stub + poportions.space / 2) / format.BOOTSTRAP_NUM_COLUMNS}%`
+            top: `50%`
           }} />,
       }[props.position]
     }

@@ -1,12 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import color from '../../constants/colors';
-import format, { poportions } from '../../constants/format';
+import format from '../../constants/format';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
-import Body, { BodyProps } from './Body';
 import Perforation from './Perforation';
-import Stub, { StubProps } from './Stub';
 import FollowMouse from '../FollowMouse';
 import MediaQuery from 'react-responsive'
 import TitleImage, { TitleImageProps } from './TitleImage';
