@@ -125,6 +125,10 @@ const ticketSections: SectionProps[] =
               start: new Date('2021-05-24'),
               end: new Date('2021-08-13'),
             },
+            barcode: {
+              displayText: 'Link to Project',
+              url: 'https://www.google.com',
+            }
           },
           bulletPoints: [
             'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
