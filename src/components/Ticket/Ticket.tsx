@@ -13,22 +13,13 @@ import BarcodeButton, { BarcodeButtonProps } from '../BarcodeButton';
 import KeyValuePairs, { KeyValuePairsProps } from './KeyValuePairs';
 import { Stack } from 'react-bootstrap';
 import Title from '../../typography/Title';
+import { getRandomRotationDegree } from '../../utils/rotate';
 
 export type TicketProps = {
   title?: TitleImageProps | string;
   keyValuePairs?: KeyValuePairsProps;
   dateRange?: AirplaneRangeProps;
   barcode?: BarcodeButtonProps;
-}
-
-function getRandomRotationDegree(): number {
-  const minDegree = -5;
-  const maxDegree = 5;
-
-  // Generate a random number between minDegree and maxDegree
-  const randomDegree = Math.floor(Math.random() * (maxDegree - minDegree + 1)) + minDegree;
-
-  return randomDegree;
 }
 
 const TicketContainer = styled(Container)`
