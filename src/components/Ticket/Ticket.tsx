@@ -23,6 +23,16 @@ export type TicketProps = {
   barcode?: BarcodeButtonProps;
 }
 
+function getRandomRotationDegree(): number {
+  const minDegree = -5;
+  const maxDegree = 5;
+
+  // Generate a random number between minDegree and maxDegree
+  const randomDegree = Math.floor(Math.random() * (maxDegree - minDegree + 1)) + minDegree;
+
+  return randomDegree;
+}
+
 const TicketContainer = styled(Container)`
   background-color: ${color.MID};
   border-radius: ${format.BORDER_RADIUS}px;
@@ -31,6 +41,8 @@ const TicketContainer = styled(Container)`
   width: 300px;
   padding: 50px 50px;
   overflow: hidden;
+  transform: rotate(${getRandomRotationDegree()}deg);
+  filter: drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25));
 `
 
 const Center = styled.div`

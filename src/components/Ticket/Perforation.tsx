@@ -12,8 +12,10 @@ const PerforationCircle = styled.div`
   height: ${PERFORATION_SIZE}px;
   width: ${PERFORATION_SIZE}px;
   border-radius: 50%;
+  border: 5px solid ${color.FOREGROUND}; /* to remove clipping artifacts */
   background-color: ${color.FOREGROUND};
   position: absolute;
+  filter: brightness(0.86); /* to match the drop shadow of the ticket */
 `
 
 // TODO: make it slice in the middle of space, not in the middle of another
