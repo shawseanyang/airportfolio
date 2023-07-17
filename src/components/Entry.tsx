@@ -1,5 +1,7 @@
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Ticket, { TicketProps } from "./Ticket/Ticket"
+import format, { proportions } from "../constants/format";
+import Text from "../typography/Text";
 
 export type EntryProps = {
   ticket: TicketProps;
@@ -9,10 +11,15 @@ export type EntryProps = {
 const Entry = (props: EntryProps) => {
   return (
     <Row>
-      <Ticket {...props.ticket} />
-      {props.bulletPoints.map((bulletPoint, index) => (
-        <p key={index}>{bulletPoint}</p>
-      ))}
+      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
+        <Ticket {...props.ticket} />
+      </Col>
+      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
+      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.BULLETS}}>
+        {props.bulletPoints.map((bulletPoint, index) => (
+          <Text key={index}>{bulletPoint}</Text>
+        ))}
+      </Col>
     </Row>
   )
 }
