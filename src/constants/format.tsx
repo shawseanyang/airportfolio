@@ -13,6 +13,7 @@ type Format = {
   MAX_Z_INDEX: number;
   BOOTSTRAP_NUM_COLUMNS: number;
   MAX_TILT: number;
+  DROP_SHADOW: string;
 }
 
 const format: Format = {
@@ -32,6 +33,7 @@ const format: Format = {
   MAX_Z_INDEX: 1000,
   BOOTSTRAP_NUM_COLUMNS: 12,
   MAX_TILT: 2,
+  DROP_SHADOW: 'drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25))',
 }
 
 export default format
@@ -41,7 +43,7 @@ export const proportions = ((proposal =
     LEFT_MARGINS: 2,
     TICKET: 3,
     SPACE: 1,
-    BULLETS: 4,
+    BODY: 4,
     RIGHT_MARGINS: 2,
   }) => {
   if(Object.values(proposal).reduce((sum, current) => sum + current, 0) !== format.BOOTSTRAP_NUM_COLUMNS) {

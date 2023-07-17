@@ -39,7 +39,7 @@ const TicketContainer = styled(Container)`
   width: 300px;
   padding: 50px 50px;
   overflow: hidden;
-  filter: drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25));
+  filter: ${format.DROP_SHADOW};
 `
 
 const Center = styled.div`
