@@ -1,12 +1,18 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Stack } from "react-bootstrap";
 import Ticket, { TicketProps } from "./Ticket/Ticket"
 import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
+import styled from "styled-components";
 
 export type EntryProps = {
   ticket: TicketProps;
   bulletPoints: string[];
 }
+
+const BulletPoints = styled(Col)`
+  display: flex;
+  align-items: center;
+`
 
 const Entry = (props: EntryProps) => {
   return (
@@ -15,11 +21,19 @@ const Entry = (props: EntryProps) => {
         <Ticket {...props.ticket} />
       </Col>
       <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
-      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.BULLETS}}>
-        {props.bulletPoints.map((bulletPoint, index) => (
-          <Text key={index}>{bulletPoint}</Text>
-        ))}
-      </Col>
+      <BulletPoints {...{[format.MOBILE_BREAKPOINT as string]: proportions.BULLETS}}>
+        <Text>
+          <ul>
+            <Stack gap={3}>
+              {props.bulletPoints.map((bulletPoint, index) => (
+                <li key={index}>
+                  {bulletPoint}
+                </li>
+              ))}
+            </Stack>
+          </ul>
+        </Text>
+      </BulletPoints>
     </Row>
   )
 }
