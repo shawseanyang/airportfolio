@@ -62,6 +62,105 @@ const ticketSections: SectionProps[] =
             'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
             'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
           ]
+        },
+        {
+          ticket: {
+            title: {
+              src: GoogleLogo,
+            },
+            keyValuePairs: {
+              pairs: [
+                {
+                  key: 'Title',
+                  value: 'Software Engineering Intern',
+                },
+                {
+                  key: 'Location',
+                  value: 'Sunnyvale, CA',
+                },
+                {
+                  key: 'Department',
+                  value: 'Core',
+                }
+              ]
+            },
+            dateRange: {
+              start: new Date('2021-05-24'),
+              end: new Date('2021-08-13'),
+            },
+          },
+          bulletPoints: [
+            'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
+            'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
+          ]
+        }
+      ]
+    },
+    {
+      id: 'projects',
+      title: 'Projects',
+      entries: [
+        {
+          ticket: {
+            title: {
+              src: GoogleLogo,
+            },
+            keyValuePairs: {
+              pairs: [
+                {
+                  key: 'Title',
+                  value: 'Software Engineering Intern',
+                },
+                {
+                  key: 'Location',
+                  value: 'Sunnyvale, CA',
+                },
+                {
+                  key: 'Department',
+                  value: 'Core',
+                }
+              ]
+            },
+            dateRange: {
+              start: new Date('2021-05-24'),
+              end: new Date('2021-08-13'),
+            },
+          },
+          bulletPoints: [
+            'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
+            'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
+          ]
+        },
+        {
+          ticket: {
+            title: {
+              src: GoogleLogo,
+            },
+            keyValuePairs: {
+              pairs: [
+                {
+                  key: 'Title',
+                  value: 'Software Engineering Intern',
+                },
+                {
+                  key: 'Location',
+                  value: 'Sunnyvale, CA',
+                },
+                {
+                  key: 'Department',
+                  value: 'Core',
+                }
+              ]
+            },
+            dateRange: {
+              start: new Date('2021-05-24'),
+              end: new Date('2021-08-13'),
+            },
+          },
+          bulletPoints: [
+            'Improving traceability in Conduit (Google\'s primary global data processing engine) to reduce debugging time for Ads, Workspace, Youtube, Search, Analytics, & Assistant.',
+            'Creating a prototype (C++) for our most detailed tracing system to date, measuring bottlenecks, and finding solutions to handle the greater volume as a result of the higher level of detail.',
+          ]
         }
       ]
     }
