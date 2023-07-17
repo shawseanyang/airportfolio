@@ -13,17 +13,9 @@ import Footer from './components/Footer';
 import { Controller } from 'react-scrollmagic';
 
 const Blocks:React.FC = ({children}) => (
-  <Container fluid={format.MOBILE_BREAKPOINT}>
-  <Row>
-  <Col />
-  <Col lg={9}>
     <Stack gap={5}>
       {children}
     </Stack>
-  </Col>
-  <Col />
-</Row>
-  </Container>
 );
 
 function App() {

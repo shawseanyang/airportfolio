@@ -17,6 +17,7 @@ const BulletPoints = styled(Col)`
 const Entry = (props: EntryProps) => {
   return (
     <Row>
+      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.LEFT_MARGINS}} />
       <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
         <Ticket {...props.ticket} />
       </Col>
@@ -34,6 +35,7 @@ const Entry = (props: EntryProps) => {
           </ul>
         </Text>
       </BulletPoints>
+      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.RIGHT_MARGINS}}/>
     </Row>
   )
 }
