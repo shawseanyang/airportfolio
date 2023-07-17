@@ -6,7 +6,7 @@ const Title: React.FC = ({children}) =>
     fontFamily: font.TITLE,
     fontWeight: 'bold',
     fontSize: fontSize.TITLE,
-    color: color.FOREGROUND,
+    color: color.HIGHLIGHT,
   }}>
     {children}
   </span>
