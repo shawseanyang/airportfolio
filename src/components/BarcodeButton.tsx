@@ -54,7 +54,7 @@ export type BarcodeButtonProps = {
 
 const BarcodeButton = (props: BarcodeButtonProps) => (
     <Stack gap={1} as={'a'} href={props.url} style={{
-      textDecorationColor: color.FOREGROUND,
+      textDecoration: 'none',
     }}>
       <BoldForegroundCaps>{props.displayText}</BoldForegroundCaps>
       <BarcodeContainer target='_blank'>
