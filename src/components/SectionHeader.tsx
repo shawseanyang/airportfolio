@@ -12,10 +12,6 @@ const DOWN_SHIFT = 100;
 // Pixels to shift the section header up into the content above.
 const UP_SHIFT = 100;
 
-// TODO: fix.
-// Counteracting a weird bug where all the content is shifted to the left a little.
-const RIGHT_SHIFT = 10;
-
 // The background of the section header, shifted down by DOWN_SHIFT
 const Background = styled.div`
   background: ${color.BACKGROUND};
@@ -23,7 +19,6 @@ const Background = styled.div`
   height: 200px;
   top: ${DOWN_SHIFT}px;
   width: 100%;
-  right: -${RIGHT_SHIFT}px;
 `
 
 // To cover up the space left by the Background after its down-shifted
@@ -33,7 +28,6 @@ const CoverUp = styled.div`
   width: 100%;
   position: absolute;
   top: -${UP_SHIFT}px;
-  right: -${RIGHT_SHIFT}px;
   z-index: -1;
 `
 
