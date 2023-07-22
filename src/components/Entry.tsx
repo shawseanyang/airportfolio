@@ -29,19 +29,27 @@ const Image = (props: {src: string}) => (
   }}/>
 )
 
+const TicketColumn = styled(Col)`
+  min-width: fit-content;
+`
+
+const InBetweenSpace = styled(Col)`
+  min-height: 100px;
+`
+
+const EndingSpace = styled(Col)`
+  min-height: 100px;
+`
+
 const Entry = (props: EntryProps) => {
   return (
     <Container>
       <Row>
         <Col/>
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}} style={{
-          minWidth: 'fit-content'
-        }}>
+        <TicketColumn {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
           <Ticket {...props.ticket} />
-        </Col>
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} style={{
-          minHeight: '100px'
-        }} />
+        </TicketColumn>
+        <InBetweenSpace {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}}/>
         <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
           <Text>
             <ul>
@@ -56,9 +64,7 @@ const Entry = (props: EntryProps) => {
           </Text>
           { props.imageUrl && <Image src={props.imageUrl} />}
         </Content>
-        <Col style={{
-          minHeight: '100px'
-        }} />
+        <EndingSpace/>
       </Row>
     </Container>
   )
