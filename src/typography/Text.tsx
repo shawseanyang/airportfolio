@@ -1,6 +1,7 @@
 import { font, fontSize } from '../constants/fonts';
 import color from '../constants/colors';
 import { Component } from 'react';
+import Bold from './Bold';
 
 class Text extends Component {
   render() {
@@ -11,7 +12,9 @@ class Text extends Component {
         fontSize: fontSize.BODY,
         color: color.MAIN,
       }}>
-        {children}
+        <Bold>
+          {children}
+        </Bold>
       </span>
     );
   }
