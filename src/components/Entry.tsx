@@ -33,8 +33,10 @@ const Entry = (props: EntryProps) => {
   return (
     <Container>
       <Row>
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.LEFT_MARGINS}} />
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
+        <Col/>
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}} style={{
+          minWidth: 'fit-content'
+        }}>
           <Ticket {...props.ticket} />
         </Col>
         <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
@@ -52,7 +54,7 @@ const Entry = (props: EntryProps) => {
           </Text>
           { props.imageUrl && <Image src={props.imageUrl} />}
         </Content>
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.RIGHT_MARGINS}}/>
+        <Col/>
       </Row>
     </Container>
   )
