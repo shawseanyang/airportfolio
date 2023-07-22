@@ -14,7 +14,7 @@ export type Theme = {
 
 export const darkMode: Theme = {
   BACKGROUND: '#04182E',
-  MID: '#102239',
+  MID: '#0b223b',
   FOREGROUND: '#254774',
   MAIN: '#04182E',
   HIGHLIGHT: '#FFFFFF',
