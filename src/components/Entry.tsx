@@ -1,4 +1,4 @@
-import { Col, Row, Stack } from "react-bootstrap";
+import { Col, Container, Row, Stack } from "react-bootstrap";
 import Ticket, { TicketProps } from "./Ticket/Ticket"
 import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
@@ -31,28 +31,30 @@ const Image = (props: {src: string}) => (
 
 const Entry = (props: EntryProps) => {
   return (
-    <Row>
-      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.LEFT_MARGINS}} />
-      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
-        <Ticket {...props.ticket} />
-      </Col>
-      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
-      <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
-        <Text>
-          <ul>
-            <Stack gap={3}>
-              {props.bulletPoints.map((bulletPoint, index) => (
-                <li key={index}>
-                  {bulletPoint}
-                </li>
-              ))}
-            </Stack>
-          </ul>
-        </Text>
-        { props.imageUrl && <Image src={props.imageUrl} />}
-      </Content>
-      <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.RIGHT_MARGINS}}/>
-    </Row>
+    <Container>
+      <Row>
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.LEFT_MARGINS}} />
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.TICKET}}>
+          <Ticket {...props.ticket} />
+        </Col>
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
+        <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
+          <Text>
+            <ul>
+              <Stack gap={3}>
+                {props.bulletPoints.map((bulletPoint, index) => (
+                  <li key={index}>
+                    {bulletPoint}
+                  </li>
+                ))}
+              </Stack>
+            </ul>
+          </Text>
+          { props.imageUrl && <Image src={props.imageUrl} />}
+        </Content>
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.RIGHT_MARGINS}}/>
+      </Row>
+    </Container>
   )
 }
 
