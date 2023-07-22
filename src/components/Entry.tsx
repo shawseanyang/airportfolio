@@ -35,11 +35,11 @@ const TicketColumn = styled(Col)`
 `
 
 const InBetweenSpace = styled(Col)`
-  min-height: ${UP_SHIFT}px;
+  min-height: ${UP_SHIFT}vmax;
 `
 
 const EndingSpace = styled(Col)`
-  min-height: ${UP_SHIFT}px;
+  min-height: ${UP_SHIFT}vmax;
 `
 
 const Entry = (props: EntryProps) => {
