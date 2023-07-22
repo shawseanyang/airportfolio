@@ -10,7 +10,7 @@ export type SectionHeaderProps = {
 const DOWN_SHIFT = 100;
 
 // Pixels to shift the section header up into the content above.
-const UP_SHIFT = 100;
+export const UP_SHIFT = 100;
 
 // The background of the section header, shifted down by DOWN_SHIFT
 const Background = styled.div`
