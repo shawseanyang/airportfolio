@@ -4,7 +4,6 @@ import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
 import styled from "styled-components";
 import { getRandomRotationDegree } from "../utils/rotate";
-import { UP_SHIFT } from "./SectionHeader";
 
 export type EntryProps = {
   ticket: TicketProps;
@@ -17,7 +16,7 @@ const Content = styled(Col)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: ${format.SPACING_VMAX}vmax;
 `
 
 const Image = (props: {src: string}) => (
@@ -35,11 +34,11 @@ const TicketColumn = styled(Col)`
 `
 
 const InBetweenSpace = styled(Col)`
-  min-height: ${UP_SHIFT}vmax;
+  min-height: ${format.SPACING_VMAX}vmax;
 `
 
 const EndingSpace = styled(Col)`
-  min-height: ${UP_SHIFT}vmax;
+  min-height: ${format.SPACING_VMAX}vmax;
 `
 
 const Entry = (props: EntryProps) => {

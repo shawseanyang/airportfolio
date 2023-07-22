@@ -14,6 +14,7 @@ type Format = {
   BOOTSTRAP_NUM_COLUMNS: number;
   MAX_TILT: number;
   DROP_SHADOW: string;
+  SPACING_VMAX: number;
 }
 
 const format: Format = {
@@ -34,6 +35,7 @@ const format: Format = {
   BOOTSTRAP_NUM_COLUMNS: 12,
   MAX_TILT: 2,
   DROP_SHADOW: 'drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25))',
+  SPACING_VMAX: 7,
 }
 
 export default format

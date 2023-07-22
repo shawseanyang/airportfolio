@@ -8,10 +8,10 @@ export type SectionHeaderProps = {
 }
 
 // View-max units to shift the section header down into the content by (allows the tickets to overlap onto the section header).
-const DOWN_SHIFT = 7;
+const DOWN_SHIFT = format.SPACING_VMAX;
 
 // View-max units to shift the section header up into the content above.
-export const UP_SHIFT = 7;
+export const UP_SHIFT = format.SPACING_VMAX;
 
 // The background of the section header, shifted down by DOWN_SHIFT
 const Background = styled.div`
