@@ -11,6 +11,7 @@ import Content, { NUMBER_OF_SECTIONS } from './content/content';
 import { useState, RefObject, useRef, createRef } from 'react';
 import Footer from './components/Footer';
 import { Controller } from 'react-scrollmagic';
+import SplitFlap from './components/SplitFlap';
 
 const Blocks:React.FC = ({children}) => (
     <Stack gap={5}>
@@ -36,6 +37,7 @@ function App() {
         {/* ScrollMagic Controller must be the root element of the page, 
           which instructs it to attach to the page's scroll position */}
           <WindowScene />
+          <SplitFlap />
           <Blocks>
             {
               Content({refs: refs, activeLink: activeLink})
