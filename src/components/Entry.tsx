@@ -39,7 +39,9 @@ const Entry = (props: EntryProps) => {
         }}>
           <Ticket {...props.ticket} />
         </Col>
-        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} />
+        <Col {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}} style={{
+          minHeight: '100px'
+        }} />
         <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
           <Text>
             <ul>
@@ -54,7 +56,9 @@ const Entry = (props: EntryProps) => {
           </Text>
           { props.imageUrl && <Image src={props.imageUrl} />}
         </Content>
-        <Col/>
+        <Col style={{
+          minHeight: '100px'
+        }} />
       </Row>
     </Container>
   )
