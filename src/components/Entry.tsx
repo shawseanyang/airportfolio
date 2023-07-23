@@ -52,15 +52,11 @@ const Entry = (props: EntryProps) => {
         <InBetweenSpace {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}}/>
         <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
           <Text>
-            <ul>
-              <Stack gap={3}>
-                {props.bulletPoints.map((bulletPoint, index) => (
-                  <li key={index}>
-                    {bulletPoint}
-                  </li>
-                ))}
-              </Stack>
-            </ul>
+            <Stack gap={2}>
+              {props.bulletPoints.map((bulletPoint, index) => (
+                  <p>{bulletPoint}</p>
+              ))}
+            </Stack>
           </Text>
           { props.imageUrl && <Image src={props.imageUrl} />}
         </Content>
