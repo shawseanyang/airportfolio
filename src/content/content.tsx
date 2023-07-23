@@ -417,7 +417,32 @@ const ticketSections: SectionProps[] =
           bulletPoints: [
             'Quantified recent wildfire impact from 35,000 acres of satellite imagery, analyzed results (Python), presented conclusions to NASA coordinators, and used the results to advise local landowners on data-driven steps to recovery.',
           ]
-        }
+        },
+        {
+          ticket: {
+            title: "Freelance Tutoring",
+            keyValuePairs: {
+              pairs: [
+                {
+                  key: 'Title',
+                  value: '1:1 Computer Science Tutor',
+                },
+                {
+                  key: 'Location',
+                  value: 'Virtual',
+                }
+              ],
+            },
+            dateRange: {
+              start: new Date('2023-04-01'),
+              end: new Date('2023-07-01'),
+            },
+          },
+          bulletPoints: [
+            'Teaching 2 college students CS 2 hrs/week with custom curricula to clarify concepts, practice coding, & give guidance.',
+            'Sourced students by posting on mailing lists and postering around Harvard in areas trafficked by students and visitors.',
+          ]
+        },
       ],
     },
   ];
