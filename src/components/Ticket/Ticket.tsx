@@ -22,12 +22,14 @@ export type TicketProps = {
   barcode?: BarcodeButtonProps;
 }
 
+export const TICKET_WIDTH_PX = 300;
+
 const TicketContainer = styled(Container)`
   background-color: ${color.MID};
   border-radius: ${format.BORDER_RADIUS}px;
   position: relative;
   transition: ${format.TRANSITION_DURATION}s;
-  width: 300px;
+  width: ${TICKET_WIDTH_PX}px;
   padding: 50px 50px;
   overflow: hidden;
   filter: ${format.DROP_SHADOW};
