@@ -17,6 +17,9 @@ const Content = styled(Col)`
   justify-content: center;
   align-items: center;
   gap: ${format.SPACING_VMAX}vmax;
+  @media (max-width: ${format.MOBILE_BREAKPOINT_PIXELS}px) {
+    padding: 0 50px;
+  }
 `
 
 const Image = (props: {src: string}) => (
