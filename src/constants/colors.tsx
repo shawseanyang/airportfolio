@@ -16,7 +16,7 @@ export const darkMode: Theme = {
   BACKGROUND: '#04182E',
   MID: '#0b223b',
   FOREGROUND: '#254774',
-  MAIN: '#04182E',
+  MAIN: '#1f3661',
   HIGHLIGHT: '#FFFFFF',
   SKY_IMAGE_COLOR: '#107FD7',
 }
