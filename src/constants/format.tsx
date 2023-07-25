@@ -34,7 +34,7 @@ const format: Format = {
   MAX_Z_INDEX: 1000,
   BOOTSTRAP_NUM_COLUMNS: 12,
   MAX_TILT: 2,
-  DROP_SHADOW: 'drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.25))',
+  DROP_SHADOW: 'drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.15))',
   SPACING_VMAX: 7,
 }
 
