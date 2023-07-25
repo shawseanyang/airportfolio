@@ -14,6 +14,7 @@ import KeyValuePairs, { KeyValuePairsProps } from './KeyValuePairs';
 import { Stack } from 'react-bootstrap';
 import Title from '../../typography/Title';
 import { getRandomRotationDegree } from '../../utils/rotate';
+import RandomRotation from '../RandomRotation';
 
 export type TicketProps = {
   title?: TitleImageProps | string;
@@ -42,27 +43,26 @@ const Center = styled.div`
 const Ticket = (props: TicketProps) => {
   return (
     <FollowMouse>
-      <TicketContainer
-        fluid={format.MOBILE_BREAKPOINT}
-        className={'p-5'}
-        style={{
-          transform: `rotate(${getRandomRotationDegree()}deg)`
-        }}
-      >
-        <Stack gap={5}>
-          <Center>
-            {props.title &&
-              (typeof props.title === 'string'
-                ? <Title>{props.title}</Title>
-                : <TitleImage {...props.title} />)}
-          </Center>
-          {props.keyValuePairs && <KeyValuePairs {...props.keyValuePairs} />}
-          {props.dateRange && <AirplaneRange {...props.dateRange} />}
-          {props.barcode && <BarcodeButton {...props.barcode} />}
-        </Stack>
-        <Perforation position={'left'}/>
-        <Perforation position={'right'}/>
-      </TicketContainer>
+      <RandomRotation>
+        <TicketContainer
+          fluid={format.MOBILE_BREAKPOINT}
+          className={'p-5'}
+        >
+          <Stack gap={5}>
+            <Center>
+              {props.title &&
+                (typeof props.title === 'string'
+                  ? <Title>{props.title}</Title>
+                  : <TitleImage {...props.title} />)}
+            </Center>
+            {props.keyValuePairs && <KeyValuePairs {...props.keyValuePairs} />}
+            {props.dateRange && <AirplaneRange {...props.dateRange} />}
+            {props.barcode && <BarcodeButton {...props.barcode} />}
+          </Stack>
+          <Perforation position={'left'}/>
+          <Perforation position={'right'}/>
+        </TicketContainer>
+      </RandomRotation>
     </FollowMouse>
   )
 }

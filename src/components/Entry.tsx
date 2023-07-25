@@ -3,7 +3,7 @@ import Ticket, { TicketProps } from "./Ticket/Ticket"
 import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
 import styled from "styled-components";
-import { getRandomRotationDegree } from "../utils/rotate";
+import RandomRotation from "./RandomRotation";
 
 export type EntryProps = {
   ticket: TicketProps;
@@ -23,13 +23,14 @@ const Content = styled(Col)`
 `
 
 const Image = (props: {src: string}) => (
-  <img src={props.src} alt={props.src} style={{
-    maxWidth: '80%',
-    maxHeight: '300px',
-    borderRadius: format.BORDER_RADIUS,
-    filter: format.DROP_SHADOW,
-    transform: `rotate(${getRandomRotationDegree()}deg)`,
-  }}/>
+  <RandomRotation>
+    <img src={props.src} alt={props.src} style={{
+      maxWidth: '80%',
+      maxHeight: '300px',
+      borderRadius: format.BORDER_RADIUS,
+      filter: format.DROP_SHADOW,
+    }}/>
+  </RandomRotation>
 )
 
 const TicketColumn = styled(Col)`
