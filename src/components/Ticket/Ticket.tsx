@@ -30,7 +30,7 @@ const TicketContainer = styled(Container)`
   position: relative;
   transition: ${format.TRANSITION_DURATION}s;
   width: ${TICKET_WIDTH_PX}px;
-  padding: 50px 50px;
+  padding: ${format.PADDING_PX}px;
   overflow: hidden;
   filter: ${format.DROP_SHADOW};
 `

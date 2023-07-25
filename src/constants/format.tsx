@@ -5,7 +5,7 @@ type Breakpoints = ContainerProps["fluid"]
 
 type Format = {
   BORDER_RADIUS: number;
-  PADDING: number;
+  PADDING_PX: number;
   MOBILE_BREAKPOINT: ContainerProps["fluid"];
   MOBILE_BREAKPOINT_PIXELS: number;
   PIXELS_TO_MOVE_ON_HOVER: number;
@@ -19,7 +19,7 @@ type Format = {
 
 const format: Format = {
   BORDER_RADIUS: 15,
-  PADDING: 5,
+  PADDING_PX: 50,
   MOBILE_BREAKPOINT: 'md',
   MOBILE_BREAKPOINT_PIXELS: 768, 
     /*
