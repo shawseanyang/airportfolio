@@ -4,6 +4,8 @@ import format, { proportions } from "../constants/format";
 import Text from "../typography/Text";
 import styled from "styled-components";
 import RandomRotation from "./RandomRotation";
+import BagTag from "./BagTag";
+import MidHighlight from "../typography/MidHighlight";
 
 export type EntryProps = {
   ticket: TicketProps;
@@ -55,13 +57,15 @@ const Entry = (props: EntryProps) => {
         </TicketColumn>
         <InBetweenSpace {...{[format.MOBILE_BREAKPOINT as string]: proportions.SPACE}}/>
         <Content {...{[format.MOBILE_BREAKPOINT as string]: proportions.BODY}}>
-          <Text>
-            <Stack gap={2}>
-              {props.bulletPoints.map((bulletPoint, index) => (
-                  <p>{bulletPoint}</p>
-              ))}
-            </Stack>
-          </Text>
+          <BagTag>
+            <MidHighlight>
+              <Stack gap={2}>
+                {props.bulletPoints.map((bulletPoint, index) => (
+                    <p>{bulletPoint}</p>
+                ))}
+              </Stack>
+            </MidHighlight>
+          </BagTag>
           { props.imageUrl && <Image src={props.imageUrl} />}
         </Content>
         <EndingSpace/>
